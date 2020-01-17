@@ -18,7 +18,7 @@ def Remove(name, project):
 
 def Fixed(name, project):
     Remove(name, project)
-    Add("_fixed_", name + ": " + project)
+    Add("_todo_", name + ": " + project)
 
 def Save():
     with open('data.txt', 'w') as outfile:
@@ -38,14 +38,16 @@ def IssueCommand(command):
     commandString = command.split(":")
     if commandString[0] in commands:
         args = None
+        ninja = None
+        project = None
         try:
             args = commandString[1].split(None, 1)
+            ninja = args[0].lstrip()
+            project = args[1].lstrip()
         except IndexError:
             pass
         if commandString[0] == "add":
             if args != None and len(args) == 2:
-                ninja = args[0].lstrip()
-                project = args[1].lstrip()
                 if ninja in ninjas and project in ninjas[ninja]:
                     print("Project already added.\n")
                 else:
@@ -58,137 +60,120 @@ def IssueCommand(command):
             else:
                 print("Invalid input. Example -> add: emma.m fast food\n")
         elif commandString[0] == "check":
-            if len(args) == 1:
-                if args[0] in ninjas:
+            if args != None and len(args) == 1:
+                if ninja in ninjas:
                     print("Projects to fix: ")
-                    for p in ninjas[args[0]]:
+                    for p in ninjas[ninja]:
                         print("- " + p)
                     print("")
                 else:
-                    print(args[0] + " not registered.\n")
+                    print(ninja + " not registered.\n")
             else:
                 print("Invalid input. Example -> check: emma.m\n")
-        elif commandString[0] == "fixed":
+        elif commandString[0] == "fix":
+            if (args != None and len(args) == 2):
+                if ninja in ninjas:
+                    if project == "all":
+                        while len(ninjas[ninja]) > 0:
+                            a = ninjas[ninja][-1]
+                            Fixed(ninja, a)
+                            print(ninja + "'s '" + a + "' added to 'todo'.")
+                        print("")
+                    else:
+                        if project in ninjas[ninja]:
+                            print("Added to 'todo'.\n")
+                            Fixed(ninja, project)
+                        else:
+                            print(ninja + " doesn't need to fix '" + project + "'.\n")
+                else:
+                    print(ninja + " not registered.\n")
+            else:
+                print("Invalid input. Example -> fix: emma.m fast food")
+                print("Can also use -> fix: emma.m all\n")
+        elif commandString[0] == "todo":
+            if args == None:
+                if "_todo_" in ninjas:
+                    print("Projects to update: ")
+                    for p in ninjas["_todo_"]:
+                        print(" - " + p)
+                    print("")
+                else:
+                    print("No projects to update.\n")
+            else:
+                print("Invalid input, do not include args\n")
+        elif commandString[0] == "grade":
+            if args != None and (len(args) == 2 or (len(args) == 1 and args[0] == "all")):
+                if len(args) == 1:
+                    while len(ninjas["_todo_"]) > 0:
+                        a = ninjas["_todo_"][-1]
+                        Remove("_todo_", a)
+                        print("'" + a + "' graded.")
+                    print("")
+                else:
+                    if project == "all":
+                        pass 
+                    else:
+                        s = ninja + ": " + project
+                        if s in ninjas["_todo_"]:
+                            Remove("_todo_", s)
+                            print("Project graded.\n")
+                        else:
+                            print("Project not queued\n")
+            else:
+                print("Invalid input. Example -> grade: emma.m fast food")
+                print("Can also use -> grade: all/n")
+        elif commandString[0] == "remove":   
             if args != None and len(args) == 2:
-                if fg[0] in ninjas:
-                    if fg[1] in ninjas[fg[0]]:
-                        print("Added to 'fixed'.\n")
-                        Fixed(fg[0], fg[1])
-                    else:
-                        print(fg[0] + " doesn't need to fix '" + fg[1] + "'.\n")
+                if project == "all":
+                    while len(ninjas[ninja]) > 0:
+                        a = ninjas[ninja][-1]
+                        Remove(ninja, a)
+                        print("Removed " + ninja + "'s " + a + ".")
+                    print("")
                 else:
-                    print(fg[0] + " not registered.\n")
+                    if ninja in ninjas:
+                        if project in ninjas[ninja]:
+                            print("Removed '" + project + "'.\n")
+                            Remove(ninja, project)
+                        else:
+                            print(ninja + " doesn't need to fix '" + project + "'.\n")
+                    else:
+                        print(ninja + " not registered.\n")
             else:
-                print("Invalid input. Example -> fixed: emma.m fast food\n")
+                print("Invalid input. Example -> remove: emma.m fast food")
+                print("Can also use -> remove: emma.m all\n")
+        elif commandString[0] == "save":   
+            if args == None:
+                Save()
+                print("Dict saved to JSON.\n")
+            else:
+                print("Invalid input, do not include args\n")
         elif commandString[0] == "exit":
-            print("Clean exit", end = ' ')
-            s = WaitForYN("Save?")
-            if s == "y":
-                Save()
-                print("with save.\n")
-            else:
-                print("without saving.\n")
-            ExitProgram()    
-    else:
-        print("Invalid command -> " + commandString[0])
-
-
-    if True:
-        return
-    if not command in commands:
-        print("Invalid command")
-    else:
-        if command == "add":
-            f = input("Enter name and project, all lowercase, dash separated (emma.m-hide and seek): ")
-            fg = f.split("-")
-            try:
-                if fg[1] in ninjas[fg[0]]:
-                    print("Project already exists.\n")
-                else:
-                    s = ""
-                    while s != "y" and s!= "n":
-                        s = input("Add '" + fg[1] + "' to " + fg[0] + "? (y/n): ")
-                    if s == "y":
-                        Add(fg[0], fg[1])
-                        print("Added.\n")
-                    else:
-                        print("Ignored.\n")
-            except IndexError:
-                print("Invalid input.\n")
-            except KeyError:
-                s = ""
-                while s != "y" and s!= "n":
-                    s = input("Add '" + fg[1] + "' to " + fg[0] + "? (y/n): ")
+            if args == None:
+                s = WaitForYN("Save?")
+                print("Clean exit", end = ' ')
                 if s == "y":
-                    Add(fg[0], fg[1])
-                    print("Added.\n")
+                    Save()
+                    print("with save.\n")
                 else:
-                    print("Ignored.\n")
-        elif command == "check":
-            s = input("Enter name: ")
-            if s in ninjas:
-                print("Projects to fix: ")
-                for p in ninjas[s]:
-                    print(" - " + p)
-                print("")
+                    print("without saving.\n")
+                ExitProgram()    
             else:
-                print(s + " not registered.\n")
-        elif command == "fixed":
-            try:
-                f = input("Enter name and project, all lowercase, dash separated (emma.m-hide and seek): ")
-                fg = f.split("-")
-                if fg[0] in ninjas:
-                    if fg[1] in ninjas[fg[0]]:
-                        print("Added to 'fixed'.\n")
-                        Fixed(fg[0], fg[1])
-                    else:
-                        print(fg[0] + " doesn't need to fix '" + fg[1] + "'.\n")
-                else:
-                    print(fg[0] + " not registered.\n")
-            except IndexError:
-                print("Invalid input.\n")
-        elif command == "remove":
-            try:
-                f = input("Enter name and project, all lowercase, dash separated (emma.m-hide and seek): ")
-                fg = f.split("-")
-                if fg[0] in ninjas:
-                    if fg[1] in ninjas[fg[0]]:
-                        print("Removed.\n")
-                        Remove(fg[0], fg[1])
-                    else:
-                        print(fg[0] + " doesn't have '" + fg[1] + "'.\n")
-                else:
-                    print(fg[0] + " not registered.\n")
-            except IndexError:
-                print("Invalid input.\n")
-        elif command == "grade":
-            if "_fixed_" in ninjas:
-                print("Fixed projects: ")
-                for p in ninjas["_fixed_"]:
-                    print(" - " + p)
-                print("")
+                print("Invalid input, do not include args\n")
+        elif commandString[0] == "debug_wipe":
+            if args == None:
+                open('data.txt', 'w').close()
+                print("JSON file wiped.\n")
             else:
-                print("No fixed projects.\n")
-        elif command == "save":
-            Save()
-            print("Dict saved to JSON.\n")
-        elif command == "exit":
-            s = ""
-            while s != "y" and s!= "n":
-                s = input("Save? (y/n): ")
-            print("Clean exit", end = ' ')
-            if s == "y":
-                Save()
-                print("with save.\n")
+                print("Invalid input, do not include args\n")
+        elif commandString[0] == "debug_clear":
+            if args == None:
+                ninjas.clear()
+                print("Program storage wiped.\n")
             else:
-                print("without saving.\n")
-            ExitProgram()
-        elif command == "debug_wipe":
-            open('data.txt', 'w').close()
-            print("JSON file wiped.\n")
-        elif command == "debug_clear":
-            ninjas.clear()
-            print("Program storage wiped.\n")
+                print("Invalid input, do not include args\n")
+    else:
+        print("Invalid command -> " + commandString[0] + "\n")
             
 
 def ExitProgram():
@@ -201,8 +186,9 @@ ninjas = {}
 commands = {
     "add",
     "check",
-    "fixed",
+    "fix",
     "remove",
+    "todo",
     "grade",
     "save",
     "exit",
