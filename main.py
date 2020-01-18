@@ -13,8 +13,19 @@ def Add(name, project):
         ninjas[name] = []
     ninjas[name].append(project)
 
+def AddNote(name, note):
+    if not name in notes:
+        notes[name] = []
+    notes[name].append(note)
+
 def Remove(name, project):
     ninjas[name].remove(project)
+
+def RemoveNote(name, noteNum):
+    del notes[name][noteNum]
+
+def RemoveAllNotes():
+    del notes.clear()
 
 def Fixed(name, project):
     Remove(name, project)
@@ -89,7 +100,7 @@ def IssueCommand(command):
                     print(ninja + " not registered.\n")
             else:
                 print("Invalid input. Example -> fix: emma.m fast food")
-                print("Can also use -> fix: emma.m all\n")
+                print("          Can also use -> fix: emma.m all\n")
         elif commandString[0] == "todo":
             if args == None:
                 if "_todo_" in ninjas:
@@ -102,26 +113,38 @@ def IssueCommand(command):
             else:
                 print("Invalid input, do not include args\n")
         elif commandString[0] == "grade":
-            if args != None and (len(args) == 2 or (len(args) == 1 and args[0] == "all")):
-                if len(args) == 1:
-                    while len(ninjas["_todo_"]) > 0:
-                        a = ninjas["_todo_"][-1]
-                        Remove("_todo_", a)
-                        print("'" + a + "' graded.")
-                    print("")
-                else:
-                    if project == "all":
-                        pass 
+            if "_todo_" in ninjas:
+                if args != None and (len(args) == 2 or (len(args) == 1 and args[0] == "all")):
+                    if len(args) == 1:
+                        while len(ninjas["_todo_"]) > 0:
+                            a = ninjas["_todo_"][-1]
+                            Remove("_todo_", a)
+                            print("'" + a + "' graded.")
+                        print("")
                     else:
-                        s = ninja + ": " + project
-                        if s in ninjas["_todo_"]:
-                            Remove("_todo_", s)
-                            print("Project graded.\n")
+                        if project == "all":
+                            i = 0
+                            while i < len(ninjas["_todo_"]):
+                                s = ninjas["_todo_"][i].split(":")[0]
+                                if s == ninja:
+                                    print("Graded '" + ninjas["_todo_"][i] + "'")
+                                    del ninjas["_todo_"][i]
+                                else:
+                                    i += 1
+                            print("")
                         else:
-                            print("Project not queued\n")
+                            s = ninja + ": " + project
+                            if s in ninjas["_todo_"]:
+                                Remove("_todo_", s)
+                                print("Project graded.\n")
+                            else:
+                                print("Project not queued\n")
+                else:
+                    print("Invalid input. Example -> grade: emma.m fast food")
+                    print("          Can also use -> grade: emma.m all")
+                    print("          Can also use -> grade: all/n")
             else:
-                print("Invalid input. Example -> grade: emma.m fast food")
-                print("Can also use -> grade: all/n")
+                print("No projects queued up.\n")
         elif commandString[0] == "remove":   
             if args != None and len(args) == 2:
                 if project == "all":
@@ -141,7 +164,7 @@ def IssueCommand(command):
                         print(ninja + " not registered.\n")
             else:
                 print("Invalid input. Example -> remove: emma.m fast food")
-                print("Can also use -> remove: emma.m all\n")
+                print("          Can also use -> remove: emma.m all\n")
         elif commandString[0] == "save":   
             if args == None:
                 Save()
@@ -160,6 +183,8 @@ def IssueCommand(command):
                 ExitProgram()    
             else:
                 print("Invalid input, do not include args\n")
+        elif commandString[0] == "addNote":
+            pass
         elif commandString[0] == "debug_wipe":
             if args == None:
                 open('data.txt', 'w').close()
@@ -183,8 +208,10 @@ def ExitProgram():
 
 print("\nSystem Active")
 ninjas = {}
+notes = {}
 commands = {
     "add",
+    "addNote"
     "check",
     "fix",
     "remove",
