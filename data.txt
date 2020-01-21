@@ -1,16 +1,13 @@
 {
     "projects": {
         "emma.m": [
+            "other thing",
             "thing",
-            "other thing"
+            "big thing"
         ],
-        "adad": [
-            "adsadsa"
-        ]
+        "adad": []
     },
     "notes": {
-        "emma.m": [
-            "thing"
-        ]
+        "emma.m": []
     }
 }

@@ -29,8 +29,10 @@ def Add(where, who, what):
     if where == "projects" or where == "notes":
         if not who in data[where]:
             data[where][who] = []
-        elif not what in data[where][who]
+        elif not what in data[where][who]:
             data[where][who].append(what)
+        else:
+            pass
     else:
         print("Undefined dict.\n")
 
@@ -71,7 +73,9 @@ def IssueCommand(command):
                                 who = args[0].lstrip()
                                 what = args[1].lstrip()
                                 if args != None and len(args) == 2:
-                                    Add("projects", who, what)   
+                                    Add("projects", who, what)
+                                else:
+                                    print("Needs args.\n")   
                             except IndexError:
                                 print("Invalid.\n")
             else:    
@@ -81,6 +85,36 @@ def IssueCommand(command):
                 Add("notes", who, what)
             else:
                 print("Invalid input.\n")
+        elif commandString[0] == "check":
+            if args != None and len(args) == 1:
+                if who in data["projects"]:
+                    print("Projects: ")
+                    for p in data["projects"][who]:
+                        print("- " + p)
+                    print("")
+                else:
+                    print(who + " not registered.\n")
+            else:
+                print("Invalid.\n")
+        elif commandString[0] == "fix":
+            if args != None and len(args) == 2:
+                if ninja in ninjas:
+                    if project == "all":
+                        while len(ninjas[ninja]) > 0:
+                            a = ninjas[ninja][-1]
+                            Fixed(ninja, a)
+                            print(ninja + "'s '" + a + "' added to 'todo'.")
+                        print("")
+                    else:
+                        if project in ninjas[ninja]:
+                            print("Added to 'todo'.\n")
+                            Fixed(ninja, project)
+                        else:
+                            print(who + " doesn't need to fix '" + what + "'.\n")
+                else:
+                    print(who + " not registered.\n")
+            else:  
+                print("Invalid.\n")   
     else:
         print("Command not recognized.\n")
 
@@ -94,11 +128,14 @@ commands = {
     "open",
     "exit",
     "add",
-    "note"
+    "note",
+    "check",
+    "fix"
 }
 
 Open()
-print("\nJSON loaded.\n")
+print("\nVersion 0.0.2 active.")
+print("JSON loaded.\n")
 
 while(True):
     command = input("Enter command: ")
