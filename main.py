@@ -4,16 +4,14 @@ from json.decoder import JSONDecodeError
 
 # - - - - - UTIL - - - - - #
 def WaitForYN(message):
-    s = ""
+    s = None
     while s != "y" and s!= "n":
         s = input(message + " (y/n): ")
     return s
-
 def Save():
     with open('data.txt', 'w') as outfile:
         json.dump(data, outfile, indent=4)
-    print("JSON saved to file.\n")
-
+    print("JSON saved to file.")
 def Open():
     try:
         with open('data.txt') as jsonFile:
@@ -22,27 +20,55 @@ def Open():
                 for who in data[where]:
                     for what in data[where][who]:
                         Add(where, who, what)
+        print("JSON loaded.")
     except JSONDecodeError:
-        print("Error reading file.\n")
-
+        print("Error reading file.")
 def Add(where, who, what):
-    if where == "projects" or where == "notes":
+    if where != None and who != None and what != None:
         if not who in data[where]:
             data[where][who] = []
-        elif not what in data[where][who]:
+        if not what in data[where][who]:
             data[where][who].append(what)
         else:
             pass
     else:
-        print("Undefined dict.\n")
-
+        print("Missing argument.")
+def Check(who):
+    if who in data["projects"]:
+        print("Projects to fix: ")
+        for p in data["projects"][who]:
+            print("- " + p)
+    else:
+        print("Ninja has no projects added.")
+    if who in data["notes"]:
+        print("Notes: ")
+        for p in data["notes"][who]:
+            print("- " + p)
+    else:
+        print("Ninja has no notes added.")
+def Remove(where, who, what):
+    if who in data[where]:
+        if what in data[where][who]:
+            data[where][who].remove(what)
+        else:
+            print("Project not in " + who + "'s '" + where + "'.")
+    else:
+        print("Ninja not found.")
 def Exit():
+    s = WaitForYN("Save?")
+    print("Program terminated",end=", ")
+    if s == "y":
+        Save()
+    else:
+        print("without saving.")
+    print("")
     sys.exit()
 
 # - - - - - COMMAND - - - - - #
 def IssueCommand(command):
     commandString = command.split(":")
-    if commandString[0] in commands:
+    com = commandString[0]
+    if com in commands:
         args = None
         who = None
         what = None
@@ -52,91 +78,97 @@ def IssueCommand(command):
             what = args[1].lstrip()
         except IndexError:
             pass
-        if commandString[0] == "save":
-            Save()
-        elif commandString[0] == "open":
-            Open()
-        elif commandString[0] == "exit": 
-            Exit()    
-        elif commandString[0] == "add":
-            if args != None:
-                if len(args) == 2:
-                    Add("projects", who, what)
-                elif len(args) == 1 and args[0] == "bulk": 
-                    while True:
-                        a = input("add -> ")
-                        if a == "done":
-                            break
-                        else:
-                            try:
-                                args = a.split(None, 1)
-                                who = args[0].lstrip()
-                                what = args[1].lstrip()
-                                if args != None and len(args) == 2:
-                                    Add("projects", who, what)
-                                else:
-                                    print("Needs args.\n")   
-                            except IndexError:
-                                print("Invalid.\n")
-            else:    
-                print("Invalid input.\n")
-        elif commandString[0] == "note":
-            if args != None and len(args) == 2:
-                Add("notes", who, what)
+        if args == None:
+            if com == "save":
+                Save()
+            elif com == "open":
+                Open()
+            elif com == "exit": 
+                Exit()    
+            elif com == "add":
+                s = None
+                while True:
+                    s = input("add -> ")
+                    if s == "done":
+                        break
+                    IssueCommand("add:" + s)
+                print("Finished.")
+            elif com == "grade":
+                pass
             else:
-                print("Invalid input.\n")
-        elif commandString[0] == "check":
-            if args != None and len(args) == 1:
+                print("'" + com + "' requires args.")
+        else:
+            if com == "add":
+                Add("projects", who, what)
+            elif com == "check":
+                Check(who)
+            elif com == "remove":
+                if what == "all" and who in data["projects"]:
+                    while len(data["projects"][who]) > 0:
+                        a = data["projects"][who][-1]
+                        Remove("projects", who, a)
+                else:
+                    Remove("projects", who, what)
+            elif com == "fixed":
                 if who in data["projects"]:
-                    print("Projects: ")
-                    for p in data["projects"][who]:
-                        print("- " + p)
-                    print("")
-                else:
-                    print(who + " not registered.\n")
-            else:
-                print("Invalid.\n")
-        elif commandString[0] == "fix":
-            if args != None and len(args) == 2:
-                if ninja in ninjas:
-                    if project == "all":
-                        while len(ninjas[ninja]) > 0:
-                            a = ninjas[ninja][-1]
-                            Fixed(ninja, a)
-                            print(ninja + "'s '" + a + "' added to 'todo'.")
-                        print("")
+                    if what == "all":
+                        for p in data["projects"][who]:
+                            Add("todo", who, p)
+                        IssueCommand("remove:" + who + " all")
+                    elif what in data["projects"][who]:
+                        Add("todo", who, what)
+                        Remove("projects", who, what)
                     else:
-                        if project in ninjas[ninja]:
-                            print("Added to 'todo'.\n")
-                            Fixed(ninja, project)
-                        else:
-                            print(who + " doesn't need to fix '" + what + "'.\n")
+                        print("Project not added to " + who + ".")
                 else:
-                    print(who + " not registered.\n")
-            else:  
-                print("Invalid.\n")   
+                    print("Ninja not found.")
+            elif com == "grade":
+                if what == "all" and who in data["todo"]:
+                    while len(data["todo"][who]) > 0:
+                        a = data["todo"][who][-1]
+                        Remove("todo", who, a)
+                else:
+                    Remove("todo", who, what)
+            elif com == "note":
+                Add("notes", who, what)
+            elif com == "unnote":
+                if what != None:
+                    if what == "all":
+                        while len(data["notes"][who]) > 0:
+                            a = data["notes"][who][-1]
+                            Remove("notes", who, a)
+                    else:
+                        if int(what) >= 0 and int(what) < len(data["notes"][who]):
+                            Remove("notes", who, data["notes"][who][int(what)])
+                        else:
+                            print("Note out of bounds.")
+            else:
+                print("'" + com + " doesn't use args.")
     else:
-        print("Command not recognized.\n")
+        print("Command not recognized.")
+    
 
 # - - - - - MAIN - - - - - #
 data = {}
 data["projects"] = {}
 data["notes"] = {}
+data["todo"] = {}
 
 commands = {
     "save",
     "open",
     "exit",
     "add",
-    "note",
     "check",
-    "fix"
+    "remove",
+    "fixed",
+    "grade",
+    "note",
+    "unnote"
 }
 
-Open()
 print("\nVersion 0.0.2 active.")
-print("JSON loaded.\n")
-
+Open()
 while(True):
-    command = input("Enter command: ")
+    command = input("\nEnter command: ")
     IssueCommand(command)
