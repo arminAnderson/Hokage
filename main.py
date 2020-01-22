@@ -167,7 +167,7 @@ commands = {
     "unnote"
 }
 
-print("\nVersion 0.0.2 active.")
+print("\nVersion 0.1.0 active.")
 Open()
 while(True):
     command = input("\nEnter command: ")
