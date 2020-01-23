@@ -15,10 +15,10 @@ def Save():
 def Open():
     try:
         with open('data.txt') as jsonFile:
-            data = json.load(jsonFile)
-            for where in data:
-                for who in data[where]:
-                    for what in data[where][who]:
+            temp = json.load(jsonFile)
+            for where in temp:
+                for who in temp[where]:
+                    for what in temp[where][who]:
                         Add(where, who, what)
         print("JSON loaded.")
     except JSONDecodeError:
@@ -37,13 +37,13 @@ def Check(who):
     if who in data["projects"]:
         print("Projects to fix: ")
         for p in data["projects"][who]:
-            print("- " + p)
+            print(" - " + p)
     else:
         print("Ninja has no projects added.")
     if who in data["notes"]:
         print("Notes: ")
         for p in data["notes"][who]:
-            print("- " + p)
+            print(" - " + p)
     else:
         print("Ninja has no notes added.")
 def Remove(where, who, what):
@@ -93,8 +93,69 @@ def IssueCommand(command):
                         break
                     IssueCommand("add:" + s)
                 print("Finished.")
-            elif com == "grade":
-                pass
+            elif com == "queue":
+                print("Projects in queue:")
+                for n in data["todo"]:
+                    for p in data["todo"][n]:
+                        print(" - " + n + ": " + p)
+            elif com == "dict":
+                print(json.dumps(data, sort_keys=False, indent=4))
+            elif com == "json":
+                try:
+                    with open('data.txt') as jsonFile:
+                        temp = json.load(jsonFile)
+                        print(json.dumps(temp, sort_keys=False, indent=4))
+                except JSONDecodeError:
+                    print("Error printing.")
+            elif com == "stats":
+                num = 0
+                na = None
+                nb = None
+                nc = None
+                a = 0
+                b = 0
+                c = 0
+                t = 0
+                for who in data["projects"]:
+                    for what in data["projects"][who]:
+                        num += 1
+                        t += 1
+                    if t > a:
+                        c = b
+                        nc = nb
+                        b = a
+                        nb = na
+                        a = t
+                        na = who
+                    elif t > b:
+                        c = b
+                        nc = nb
+                        b = t
+                        nb = who
+                    elif t > c:
+                        c = t
+                        nc = who
+                    t = 0
+                print("Number of projects to fix: " + str(num))
+                print(" - " + na + " has the most with " + str(a))
+                print(" - " + nb + " has the second most with " + str(b))
+                print(" - " + nc + " has the third most with " + str(c))
+                num = 0
+                for who in data["todo"]:
+                    for what in data["todo"][who]:
+                        num += 1
+                print("Number of projects to grade: " + str(num))
+            elif com == "commands":
+                group = [3, 3, 4, 2, 2, 2]
+                g = 0
+                i = 0
+                for c in commands:
+                    print(" - " + c)
+                    g += 1
+                    if g == group[i]:
+                        g = 0
+                        i += 1
+                        print("")
             else:
                 print("'" + com + "' requires args.")
         else:
@@ -154,20 +215,30 @@ data["projects"] = {}
 data["notes"] = {}
 data["todo"] = {}
 
-commands = {
+commands = [
     "save",
     "open",
     "exit",
-    "add",
+
     "check",
+    "queue",
+    "stats",
+
+    "add",
     "remove",
     "fixed",
     "grade",
-    "note",
-    "unnote"
-}
 
-print("\nVersion 0.1.0 active.")
+    "note",
+    "unnote",
+
+    "dict",
+    "json",
+
+    "commands"
+]
+
+print("\nVersion 0.3.0 active.")
 Open()
 while(True):
     command = input("\nEnter command: ")

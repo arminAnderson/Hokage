@@ -100,6 +100,9 @@
         "grace.p": [
             "downhill ski"
         ],
+        "zoey.z": [
+            "measurements"
+        ],
         "logan.r": [
             "downhill ski"
         ],
@@ -186,9 +189,6 @@
         ],
         "nickolas.b": [
             "bug invaders"
-        ],
-        "zoey.z": [
-            "measurements"
         ]
     }
 }
