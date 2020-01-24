@@ -13,7 +13,11 @@
         "nickolas.b": [
             "shuriken toss 2",
             "space tour",
-            "rolling dice"
+            "rolling dice",
+            "bug invaders",
+            "bubbles",
+            "ninja battle",
+            "meteors 1"
         ],
         "matthew.o": [
             "hide and seek",
@@ -53,11 +57,7 @@
             "bug invaders",
             "lift off"
         ],
-        "gavin.d": [
-            "getting started",
-            "spin the scene",
-            "two player pong"
-        ],
+        "gavin.d": [],
         "olivia.e": [
             "downhill ski",
             "crystal ball",
@@ -117,11 +117,7 @@
             "apple picking",
             "fast food"
         ],
-        "mckennah.m": [
-            "two player pong",
-            "basic shooter",
-            "side wall bounce"
-        ],
+        "mckennah.m": [],
         "jeffrey.b": [
             "follow the pointer",
             "star spinner"
@@ -175,9 +171,30 @@
             "alien explorer",
             "parcel express",
             "mail truck"
+        ],
+        "ryder.b": [
+            "robot builder",
+            "rock paper scissors"
+        ],
+        "victor.l": [
+            "downhill ski"
+        ],
+        "cali.k": [
+            "zombie island"
         ]
     },
-    "notes": {},
+    "notes": {
+        "mckennah.m": [
+            "basic shooter only shoots once"
+        ],
+        "brandon.t": [
+            "laser beam pointer does nothing"
+        ],
+        "ryder.b": [
+            "robot builder parts don't move back if you misplace them",
+            "rock paper scissors no indication of who won"
+        ]
+    },
     "todo": {
         "dash.m": [
             "rain catcher 5",
@@ -189,6 +206,14 @@
         ],
         "zoey.z": [
             "measurements"
+        ],
+        "gavin.d": [
+            "getting started",
+            "spin the scene",
+            "two player pong"
+        ],
+        "mckennah.m": [
+            "basic shooter"
         ]
     }
 }
