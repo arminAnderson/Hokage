@@ -25,7 +25,8 @@
         ],
         "enzo.j": [
             "downhill ski",
-            "apple picking"
+            "apple picking",
+            "mail truck"
         ],
         "noah.v": [
             "hide and seek"
@@ -38,7 +39,9 @@
             "balloon protect",
             "ninja supplies",
             "hiding ninja",
-            "rain catcher 5"
+            "rain catcher 5",
+            "shuriken toss 2",
+            "shuriken toss 1"
         ],
         "naman.s": [
             "pong",
@@ -48,20 +51,11 @@
         "nadia.a": [
             "spin the scene"
         ],
-        "ethan.c": [
-            "laser beam pointer"
-        ],
         "ian.c": [
             "measurements",
             "candy sort",
             "bug invaders",
             "lift off"
-        ],
-        "gavin.d": [],
-        "olivia.e": [
-            "downhill ski",
-            "crystal ball",
-            "maze"
         ],
         "mason.r": [
             "pong",
@@ -71,9 +65,6 @@
             "downhill ski",
             "fast food",
             "hide and seek"
-        ],
-        "agastya.r": [
-            "mail truck"
         ],
         "patrick.h": [
             "ninja battle",
@@ -117,22 +108,18 @@
             "apple picking",
             "fast food"
         ],
-        "mckennah.m": [],
         "jeffrey.b": [
             "follow the pointer",
             "star spinner"
-        ],
-        "lucca.b": [
-            "ninja snacks",
-            "shuriken toss 2",
-            "balloon protect"
         ],
         "daniel.z": [
             "downhill ski",
             "fast food"
         ],
         "evan.l": [
-            "spin the scene"
+            "spin the scene",
+            "rain catcher 6",
+            "ninja snacks"
         ],
         "caden.p": [
             "lift off",
@@ -147,9 +134,6 @@
         "gavin.s": [
             "maze"
         ],
-        "alec.b": [
-            "hide and seek"
-        ],
         "max.p": [
             "apple picking"
         ],
@@ -160,7 +144,6 @@
             "star spinner"
         ],
         "jacob.n": [
-            "space tour",
             "shuriken toss 2",
             "zapper 2",
             "lift off",
@@ -180,12 +163,37 @@
             "downhill ski"
         ],
         "cali.k": [
-            "zombie island"
+            "zombie island",
+            "hide and seek",
+            "fast food"
+        ],
+        "zoey.z": [
+            "rain catcher 3",
+            "shooting stars"
+        ],
+        "lorenzo.a": [
+            "ninja puzzle"
+        ],
+        "giovanni.g": [
+            "mail truck"
+        ],
+        "mckennah.m": [
+            "coconut chaos"
+        ],
+        "makana.r": [
+            "bubbles"
+        ],
+        "benicio.g": [
+            "parcel express"
+        ],
+        "daniel.r": [
+            "measurements"
         ]
     },
     "notes": {
         "mckennah.m": [
-            "basic shooter only shoots once"
+            "basic shooter only shoots once",
+            "coconut chaos coconut is named wrong"
         ],
         "brandon.t": [
             "laser beam pointer does nothing"
@@ -193,6 +201,15 @@
         "ryder.b": [
             "robot builder parts don't move back if you misplace them",
             "rock paper scissors no indication of who won"
+        ],
+        "zoey.z": [
+            "shooting star code on rocket.Update()"
+        ],
+        "giovanni.g": [
+            "mail truck goes off the road"
+        ],
+        "evan.l": [
+            "rain catcher 6 snowflake makes bucket black"
         ]
     },
     "todo": {
@@ -214,6 +231,32 @@
         ],
         "mckennah.m": [
             "basic shooter"
+        ],
+        "lucca.b": [
+            "shuriken toss 2",
+            "ninja snacks",
+            "balloon protect",
+            "laser beam pointer"
+        ],
+        "alec.b": [
+            "hide and seek"
+        ],
+        "olivia.e": [
+            "maze",
+            "crystal ball",
+            "downhill ski"
+        ],
+        "agastya.r": [
+            "mail truck"
+        ],
+        "jacob.n": [
+            "space tour"
+        ],
+        "ethan.c": [
+            "laser beam pointer",
+            "space tour",
+            "zapper 2",
+            "whats inside"
         ]
     }
 }

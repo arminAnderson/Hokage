@@ -48,10 +48,19 @@ def Check(who):
         print("Ninja has no notes added.")
 def Remove(where, who, what):
     if who in data[where]:
-        if what in data[where][who]:
-            data[where][who].remove(what)
+        if what != None:
+            try:
+                if int(what) >= 0 and int(what) < len(data[where][who]):
+                    data[where][who].remove(data[where][who][int(what)])
+                else:
+                    print("Out of bounds.")
+            except ValueError:
+                if what in data[where][who]:
+                    data[where][who].remove(what)
+                else:
+                    print("Project not in " + who + "'s '" + where + "'.")
         else:
-            print("Project not in " + who + "'s '" + where + "'.")
+            print("'what' is undefined.")
     else:
         print("Ninja not found.")
 def Exit():
@@ -145,8 +154,11 @@ def IssueCommand(command):
                     for what in data["todo"][who]:
                         num += 1
                 print("Number of projects to grade: " + str(num))
+            elif com == "who":
+                for i in sorted(data["projects"].keys()):
+                    print(i)
             elif com == "commands":
-                group = [3, 3, 4, 2, 2, 2]
+                group = [3, 4, 4, 2, 2, 2]
                 g = 0
                 i = 0
                 for c in commands:
@@ -170,17 +182,28 @@ def IssueCommand(command):
                         Remove("projects", who, a)
                 else:
                     Remove("projects", who, what)
-            elif com == "fixed":
+            elif com == "fix":
                 if who in data["projects"]:
-                    if what == "all":
-                        for p in data["projects"][who]:
-                            Add("todo", who, p)
-                        IssueCommand("remove:" + who + " all")
-                    elif what in data["projects"][who]:
-                        Add("todo", who, what)
-                        Remove("projects", who, what)
+                    if what != None:
+                        if what == "all":
+                            for p in data["projects"][who]:
+                                Add("todo", who, p)
+                            IssueCommand("remove:" + who + " all")
+                        else:
+                            try:
+                                if int(what) >= 0 and int(what) < len(data["projects"][who]):
+                                    Add("todo", who, data["projects"][who][int(what)])
+                                    Remove("projects", who, what)
+                                else:
+                                    print("Out of bounds.")
+                            except ValueError:
+                                if what in data["projects"][who]:
+                                    Add("todo", who, what)
+                                    Remove("projects", who, what)
+                                else:
+                                    print("Project not added to " + who + ".")
                     else:
-                        print("Project not added to " + who + ".")
+                        print("Invalid")
                 else:
                     print("Ninja not found.")
             elif com == "grade":
@@ -193,18 +216,17 @@ def IssueCommand(command):
             elif com == "note":
                 Add("notes", who, what)
             elif com == "unnote":
-                if what != None:
+                if who != None and what != None:
                     if what == "all":
                         while len(data["notes"][who]) > 0:
                             a = data["notes"][who][-1]
                             Remove("notes", who, a)
                     else:
-                        if int(what) >= 0 and int(what) < len(data["notes"][who]):
-                            Remove("notes", who, data["notes"][who][int(what)])
-                        else:
-                            print("Note out of bounds.")
+                        Remove("notes", who, what)
+                else:
+                    print("Invalid.")
             else:
-                print("'" + com + " doesn't use args.")
+                print("'" + com + "' doesn't use args.")
     else:
         print("Command not recognized.")
     
@@ -223,10 +245,11 @@ commands = [
     "check",
     "queue",
     "stats",
+    "who",
 
     "add",
     "remove",
-    "fixed",
+    "fix",
     "grade",
 
     "note",
@@ -238,7 +261,7 @@ commands = [
     "commands"
 ]
 
-print("\nVersion 0.3.0 active.")
+print("\nVersion 0.3.3 active.")
 Open()
 while(True):
     command = input("\nEnter command: ")
