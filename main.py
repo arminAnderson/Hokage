@@ -35,7 +35,7 @@ def Add(where, who, what):
         print("Missing argument.")
 def Check(who):
     if who in data["projects"]:
-        print("Projects to fix: ")
+        print(who + " has " + str(len(data["projects"][who])) + " projects to fix:")
         for p in data["projects"][who]:
             print(" - " + p)
     else:
@@ -63,6 +63,32 @@ def Remove(where, who, what):
             print("'what' is undefined.")
     else:
         print("Ninja not found.")
+def ExportGrades():
+    with open('grades.txt', 'w') as grades:
+        for n in data["todo"]:
+            grades.write(n + ":\n")
+            for p in data["todo"][n]:
+                grades.write("  " + p + "\n")
+    print("Grades exported.")
+def ImportGrades():
+    try:
+        with open('grades.txt') as grades:
+            lines = grades.readlines()
+            curr = None
+            for l in lines:
+                if l.find(':') != -1:
+                    curr = l[:-2]
+                else:
+                    if l.find('$') != -1:
+                        l = l.lstrip()
+                        l = l[:-2]
+                        l = l.rstrip()
+                        print(l)
+                        if l in data["todo"][curr]:
+                            Remove("todo", curr, l)
+        print("Grades loaded.")
+    except FileNotFoundError:
+        print("File not generated yet.")
 def Exit():
     s = WaitForYN("Save?")
     print("Program terminated",end=", ")
@@ -107,6 +133,19 @@ def IssueCommand(command):
                 for n in data["todo"]:
                     for p in data["todo"][n]:
                         print(" - " + n + ": " + p)
+            elif com == "grade":
+                s = WaitForYN("Are you sure you want to clear the whole grade queue?")
+                if s == "y":
+                    for n in data["todo"]:
+                        while len(data["todo"][n]) > 0:
+                            Remove("todo", n, 0)
+                    print("Cleared.")
+                else:
+                    print("Cancelled.")
+            elif com == "offline":
+                ExportGrades()
+            elif com == "online":
+                ImportGrades()
             elif com == "dict":
                 print(json.dumps(data, sort_keys=False, indent=4))
             elif com == "json":
@@ -158,7 +197,7 @@ def IssueCommand(command):
                 for i in sorted(data["projects"].keys()):
                     print(i)
             elif com == "commands":
-                group = [3, 4, 4, 2, 2, 2]
+                group = [3, 4, 6, 2, 2, 2]
                 g = 0
                 i = 0
                 for c in commands:
@@ -178,8 +217,7 @@ def IssueCommand(command):
             elif com == "remove":
                 if what == "all" and who in data["projects"]:
                     while len(data["projects"][who]) > 0:
-                        a = data["projects"][who][-1]
-                        Remove("projects", who, a)
+                        Remove("projects", who, 0)
                 else:
                     Remove("projects", who, what)
             elif com == "fix":
@@ -209,8 +247,7 @@ def IssueCommand(command):
             elif com == "grade":
                 if what == "all" and who in data["todo"]:
                     while len(data["todo"][who]) > 0:
-                        a = data["todo"][who][-1]
-                        Remove("todo", who, a)
+                        Remove("todo", who, 0)
                 else:
                     Remove("todo", who, what)
             elif com == "note":
@@ -219,8 +256,7 @@ def IssueCommand(command):
                 if who != None and what != None:
                     if what == "all":
                         while len(data["notes"][who]) > 0:
-                            a = data["notes"][who][-1]
-                            Remove("notes", who, a)
+                            Remove("notes", who, 0)
                     else:
                         Remove("notes", who, what)
                 else:
@@ -251,6 +287,8 @@ commands = [
     "remove",
     "fix",
     "grade",
+    "offline",
+    "online",
 
     "note",
     "unnote",
@@ -261,7 +299,9 @@ commands = [
     "commands"
 ]
 
-print("\nVersion 0.3.3 active.")
+print("\nVersion 0.3.4 active.")
+#add easy offline grading -> 0.4.0
+
 Open()
 while(True):
     command = input("\nEnter command: ")
