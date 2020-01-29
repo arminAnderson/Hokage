@@ -299,8 +299,7 @@ commands = [
     "commands"
 ]
 
-print("\nVersion 0.3.4 active.")
-#add easy offline grading -> 0.4.0
+print("\nVersion 0.4.0 active.")
 
 Open()
 while(True):
