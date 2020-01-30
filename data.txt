@@ -14,19 +14,13 @@
             "shuriken toss 2",
             "space tour",
             "rolling dice",
-            "bug invaders",
-            "bubbles",
             "ninja battle",
             "meteors 1"
         ],
         "matthew.o": [
-            "hide and seek",
             "maze"
         ],
         "noah.v": [
-            "hide and seek"
-        ],
-        "kyle.p": [
             "hide and seek"
         ],
         "naman.s": [
@@ -37,26 +31,16 @@
         "nadia.a": [
             "spin the scene"
         ],
-        "ian.c": [
-            "measurements",
-            "candy sort",
-            "bug invaders",
-            "lift off"
-        ],
         "mason.r": [
             "pong",
-            "bubbles"
+            "bubbles",
+            "coconut chaos"
         ],
-        "patrick.h": [
-            "space tour",
-            "ninja snacks"
-        ],
+        "patrick.h": [],
         "peter.h": [
             "meteors deluxe"
         ],
-        "leandro.g": [
-            "crystal ball"
-        ],
+        "leandro.g": [],
         "garret.b": [
             "hide and seek",
             "fast food"
@@ -64,7 +48,8 @@
         "nihal.g": [
             "follow the pointer",
             "apple picking",
-            "hide and seel"
+            "hide and seel",
+            "star spinner"
         ],
         "grace.p": [
             "downhill ski"
@@ -112,9 +97,6 @@
         "max.p": [
             "apple picking"
         ],
-        "tristan.a": [
-            "coconut chaos"
-        ],
         "erin.c": [
             "star spinner"
         ],
@@ -132,7 +114,8 @@
         ],
         "ryder.b": [
             "robot builder",
-            "rock paper scissors"
+            "rock paper scissors",
+            "whats inside"
         ],
         "victor.l": [
             "downhill ski"
@@ -143,7 +126,6 @@
             "fast food"
         ],
         "zoey.z": [
-            "rain catcher 3",
             "shooting stars"
         ],
         "lorenzo.a": [
@@ -156,13 +138,33 @@
             "coconut chaos"
         ],
         "makana.r": [
-            "bubbles"
+            "bubbles",
+            "laser beam pointer"
         ],
         "benicio.g": [
             "parcel express"
         ],
-        "daniel.r": [
-            "measurements"
+        "alexander.l": [
+            "ninja battle"
+        ],
+        "tristan.a": [
+            "rolling dice"
+        ],
+        "taran.h": [
+            "fast food",
+            "crystal ball"
+        ],
+        "evan.g": [
+            "collect the keys"
+        ],
+        "eric.z": [
+            "hiding ninja"
+        ],
+        "gavin.d": [
+            "hiding ninja"
+        ],
+        "cj.g": [
+            "star spinner"
         ]
     },
     "notes": {
@@ -185,91 +187,27 @@
         ],
         "evan.l": [
             "rain catcher 6 snowflake makes bucket black"
-        ]
-    },
-    "todo": {
-        "dash.m": [
-            "rain catcher 5",
-            "pong",
-            "rolling dice"
-        ],
-        "nickolas.b": [
-            "bug invaders"
-        ],
-        "zoey.z": [
-            "measurements"
-        ],
-        "gavin.d": [
-            "getting started",
-            "spin the scene",
-            "two player pong"
-        ],
-        "mckennah.m": [
-            "basic shooter"
-        ],
-        "lucca.b": [
-            "shuriken toss 2",
-            "ninja snacks",
-            "balloon protect",
-            "laser beam pointer"
-        ],
-        "alec.b": [
-            "hide and seek"
-        ],
-        "olivia.e": [
-            "maze",
-            "crystal ball",
-            "downhill ski"
-        ],
-        "agastya.r": [
-            "mail truck"
-        ],
-        "jacob.n": [
-            "space tour"
-        ],
-        "ethan.c": [
-            "laser beam pointer",
-            "space tour",
-            "zapper 2",
-            "whats inside"
-        ],
-        "troy.c": [
-            "downhill ski",
-            "hide and seek",
-            "fast food"
-        ],
-        "peter.h": [
-            "ninja battle",
-            "shuriken toss 2",
-            "meteors deluxe",
-            "spin all objects",
-            "spin the scene",
-            "coordinate collector",
-            "star spinner"
-        ],
-        "logan.r": [
-            "downhill ski"
         ],
         "alexander.l": [
-            "measurements",
-            "balloon protect",
-            "ninja supplies",
-            "hiding ninja",
-            "rain catcher 2",
-            "rain catcher 5",
-            "shuriken toss 2",
-            "shuriken toss 1",
-            "side wall bounce",
-            "laser beam pointer",
-            "basic shooter"
+            "shuriken is thrown straight forward"
         ],
-        "patrick.h": [
-            "ninja battle"
+        "nickolas.b": [],
+        "gavin.d": [
+            "lowercase v in 'visible'"
         ],
-        "enzo.j": [
-            "downhill ski",
-            "apple picking",
-            "mail truck"
+        "grace.p": [
+            "ski gate hits player and stops"
+        ],
+        "cj.g": [
+            "star is spinning backwards"
+        ],
+        "naman.s": [
+            "doors can all open and picture not random",
+            "no score"
+        ],
+        "emma.m": [
+            "cannot revisit 0 and no losing text"
         ]
-    }
+    },
+    "todo": {}
 }

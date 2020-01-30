@@ -34,18 +34,25 @@ def Add(where, who, what):
     else:
         print("Missing argument.")
 def Check(who):
-    if who in data["projects"]:
-        print(who + " has " + str(len(data["projects"][who])) + " projects to fix:")
-        for p in data["projects"][who]:
-            print(" - " + p)
+    if who != None:
+        if who in data["projects"]:
+            print(who + " has " + str(len(data["projects"][who])) + " projects to fix:")
+            for p in data["projects"][who]:
+                print(" - " + p)
+        else:
+            print("Ninja has no projects added.")
+        if who in data["notes"]:
+            print("Notes: ")
+            for p in data["notes"][who]:
+                print(" - " + p)
+        else:
+            print("Ninja has no notes added.")
     else:
-        print("Ninja has no projects added.")
-    if who in data["notes"]:
-        print("Notes: ")
-        for p in data["notes"][who]:
-            print(" - " + p)
-    else:
-        print("Ninja has no notes added.")
+        for n in data["projects"]:
+            print(n + " has " + str(len(data["projects"][n])) + " projects to fix:")
+            for p in data["projects"][n]:
+                print(" - " + p)
+
 def Remove(where, who, what):
     if who in data[where]:
         if what != None:
@@ -63,32 +70,6 @@ def Remove(where, who, what):
             print("'what' is undefined.")
     else:
         print("Ninja not found.")
-def ExportGrades():
-    with open('grades.txt', 'w') as grades:
-        for n in data["todo"]:
-            grades.write(n + ":\n")
-            for p in data["todo"][n]:
-                grades.write("  " + p + "\n")
-    print("Grades exported.")
-def ImportGrades():
-    try:
-        with open('grades.txt') as grades:
-            lines = grades.readlines()
-            curr = None
-            for l in lines:
-                if l.find(':') != -1:
-                    curr = l[:-2]
-                else:
-                    if l.find('$') != -1:
-                        l = l.lstrip()
-                        l = l[:-2]
-                        l = l.rstrip()
-                        print(l)
-                        if l in data["todo"][curr]:
-                            Remove("todo", curr, l)
-        print("Grades loaded.")
-    except FileNotFoundError:
-        print("File not generated yet.")
 def Exit():
     s = WaitForYN("Save?")
     print("Program terminated",end=", ")
@@ -110,7 +91,9 @@ def IssueCommand(command):
         try:
             args = commandString[1].split(None, 1)
             who = args[0].lstrip()
+            who = args[0].rstrip()
             what = args[1].lstrip()
+            what = args[1].rstrip()
         except IndexError:
             pass
         if args == None:
@@ -128,6 +111,8 @@ def IssueCommand(command):
                         break
                     IssueCommand("add:" + s)
                 print("Finished.")
+            elif com == "check":
+                Check(None)
             elif com == "queue":
                 print("Projects in queue:")
                 for n in data["todo"]:
@@ -142,10 +127,6 @@ def IssueCommand(command):
                     print("Cleared.")
                 else:
                     print("Cancelled.")
-            elif com == "offline":
-                ExportGrades()
-            elif com == "online":
-                ImportGrades()
             elif com == "dict":
                 print(json.dumps(data, sort_keys=False, indent=4))
             elif com == "json":
@@ -197,7 +178,7 @@ def IssueCommand(command):
                 for i in sorted(data["projects"].keys()):
                     print(i)
             elif com == "commands":
-                group = [3, 4, 6, 2, 2, 2]
+                group = [3, 4, 4, 2, 2, 2]
                 g = 0
                 i = 0
                 for c in commands:
@@ -211,7 +192,26 @@ def IssueCommand(command):
                 print("'" + com + "' requires args.")
         else:
             if com == "add":
-                Add("projects", who, what)
+                if what != None and what.find('#') != -1:
+                    parts = what.split("#")
+                    parts[0] = parts[0].lstrip()
+                    parts[0] = parts[0].rstrip()
+                    parts[1] = parts[1].lstrip()
+                    parts[1] = parts[1].rstrip()
+                    Add("projects", who, parts[0])
+                    Add("notes", who, parts[1])
+                else:
+                    if what == None:
+                        s = None
+                        while True:
+                            s = input("add for " + who + " -> ")
+                            s.strip()
+                            if s == "done" or s == "":
+                                break
+                            IssueCommand("add: " + who + " " + s)
+                        print("Finished.")
+                    else:
+                        Add("projects", who, what)
             elif com == "check":
                 Check(who)
             elif com == "remove":
@@ -287,8 +287,6 @@ commands = [
     "remove",
     "fix",
     "grade",
-    "offline",
-    "online",
 
     "note",
     "unnote",
@@ -299,7 +297,7 @@ commands = [
     "commands"
 ]
 
-print("\nVersion 0.4.0 active.")
+print("\nVersion 0.6.0 active.")
 
 Open()
 while(True):
