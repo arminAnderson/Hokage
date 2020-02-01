@@ -1,9 +1,6 @@
 {
     "projects": {
-        "brandon.t": [
-            "laser beam pointer"
-        ],
-        "brandon.w": [],
+        "brandon.t": [],
         "molly.c": [
             "follow the pointer"
         ],
@@ -21,17 +18,18 @@
             "hide and seek"
         ],
         "naman.s": [
-            "pong",
             "whats inside",
-            "bug invaders"
+            "bug invaders",
+            "rolling dice",
+            "rock paper scissors"
         ],
-        "nadia.a": [
-            "spin the scene"
-        ],
+        "nadia.a": [],
         "mason.r": [
             "pong",
             "bubbles",
-            "coconut chaos"
+            "coconut chaos",
+            "rain catcher 5",
+            "rain catcher 4"
         ],
         "peter.h": [
             "meteors deluxe"
@@ -43,8 +41,8 @@
         "nihal.g": [
             "follow the pointer",
             "apple picking",
-            "hide and seel",
-            "star spinner"
+            "star spinner",
+            "hide and seek"
         ],
         "grace.p": [
             "downhill ski"
@@ -57,11 +55,13 @@
         ],
         "akul.s": [
             "fast food",
-            "crystal ball"
+            "crystal ball",
+            "downhill ski"
         ],
         "caitlyn.g": [
             "apple picking",
-            "fast food"
+            "fast food",
+            "maze"
         ],
         "jeffrey.b": [
             "follow the pointer",
@@ -69,7 +69,8 @@
         ],
         "daniel.z": [
             "downhill ski",
-            "fast food"
+            "fast food",
+            "hide and seek"
         ],
         "evan.l": [
             "spin the scene",
@@ -80,19 +81,18 @@
             "lift off",
             "rolling dice"
         ],
-        "cameron.k": [
-            "parcel express"
-        ],
         "ben.m": [
-            "space tour"
+            "space tour",
+            "getting started",
+            "star spinner"
         ],
         "gavin.s": [
             "maze"
         ],
         "max.p": [
-            "apple picking"
+            "apple picking",
+            "prove yourself"
         ],
-        "erin.c": [],
         "jacob.n": [
             "shuriken toss 2",
             "zapper 2",
@@ -111,7 +111,7 @@
             "whats inside"
         ],
         "victor.l": [
-            "downhill ski"
+            "mail truck"
         ],
         "cali.k": [
             "zombie island",
@@ -126,18 +126,16 @@
             "ninja puzzle"
         ],
         "giovanni.g": [
-            "mail truck"
+            "mail truck",
+            "maze"
         ],
-        "mckennah.m": [
-            "coconut chaos"
-        ],
+        "mckennah.m": [],
         "makana.r": [
             "bubbles",
-            "laser beam pointer"
+            "laser beam pointer",
+            "prove yourself pong"
         ],
-        "benicio.g": [
-            "parcel express"
-        ],
+        "benicio.g": [],
         "alexander.l": [
             "zapper 2"
         ],
@@ -163,26 +161,60 @@
         "josh.m": [
             "star spinner"
         ],
-        "agastya.r": [],
         "karissa.p": [
             "apple picking",
             "mail truck"
         ],
         "liv.a": [
             "pick a picture",
-            "fast food"
+            "fast food",
+            "downhill ski"
         ],
         "anabella.g": [
             "crystal ball"
         ],
         "giovanni": [
             "maze"
+        ],
+        "logan.r": [
+            "alien explorer"
+        ],
+        "felipe.b": [
+            "apple picking"
+        ],
+        "kadence.k": [
+            "coconut chaos"
+        ],
+        "tyler.r": [
+            "coordinate collector"
+        ],
+        "lucca.b": [
+            "pong with keyboard",
+            "getting started"
+        ],
+        "ryan.o": [
+            "hide and seek"
+        ],
+        "mackenzie.m": [],
+        "dominic.g": [
+            "apple picking"
+        ],
+        "jaden.c": [
+            "parcel express",
+            "apple picking",
+            "fast food"
+        ],
+        "arjun.a": [],
+        "lucas.b": [
+            "fast food"
+        ],
+        "shuang.l": [
+            "maze"
         ]
     },
     "notes": {
         "mckennah.m": [
-            "basic shooter only shoots once",
-            "coconut chaos coconut is named wrong"
+            "basic shooter only shoots once"
         ],
         "brandon.t": [
             "laser beam pointer does nothing"
@@ -193,22 +225,28 @@
         ],
         "zoey.z": [
             "shooting star code on rocket.Update()",
-            "snowflake doesnt change bucket color"
+            "snowflake doesnt change bucket color",
+            "snowflake doesnt work",
+            "code in the wrong place"
         ],
         "giovanni.g": [
             "mail truck goes off the road"
         ],
         "evan.l": [
-            "rain catcher 6 snowflake makes bucket black"
+            "rain catcher 6 snowflake makes bucket black",
+            "doesnt delete apple",
+            "snowflake makes the bucket black"
         ],
         "gavin.d": [
-            "lowercase v in 'visible'"
+            "lowercase v in 'visible'",
+            "ninja never unhides"
         ],
         "grace.p": [
             "ski gate hits player and stops"
         ],
         "cj.g": [
-            "star is spinning backwards"
+            "star is spinning backwards",
+            "star needs to be fast on the top, slow on bottom"
         ],
         "naman.s": [
             "doors can all open and picture not random",
@@ -225,7 +263,30 @@
             "allow more breaks"
         ],
         "kadence.k": [
-            "dont joke about anything related to grades/performance"
+            "dont joke about anything related to grades/performance",
+            "just submitted early, needs the text"
+        ],
+        "felipe.b": [
+            "submitted fast food instead"
+        ],
+        "max.p": [
+            "didnt make a scene"
+        ],
+        "makana.r": [
+            "missing the end game part",
+            "code on the scene"
+        ],
+        "victor.l": [
+            "mail truck can drive off the road"
+        ],
+        "liv.a": [
+            "ice cream doesnt work"
+        ],
+        "armin.a": [
+            "cameron k"
+        ],
+        "tyler.r": [
+            "c.c doesnt round"
         ]
     },
     "todo": {

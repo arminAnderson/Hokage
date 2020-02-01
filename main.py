@@ -95,6 +95,8 @@ def IssueCommand(command):
             what = args[1].lstrip()
             what = args[1].rstrip()
         except IndexError:
+            if who == None and what == None:
+                args = None
             pass
         if args == None:
             if com == "save":
@@ -297,7 +299,7 @@ commands = [
     "commands"
 ]
 
-print("\nVersion 0.6.0 active.")
+print("\nVersion 0.6.2 active.")
 
 Open()
 while(True):
