@@ -178,7 +178,8 @@ def IssueCommand(command):
                 print("Number of projects to grade: " + str(num))
             elif com == "who":
                 for i in sorted(data["projects"].keys()):
-                    print(i)
+                    if len(data["projects"][i]) > 0:
+                        print(i)
             elif com == "commands":
                 group = [3, 4, 4, 2, 2, 2]
                 g = 0
@@ -299,7 +300,7 @@ commands = [
     "commands"
 ]
 
-print("\nVersion 0.6.2 active.")
+print("\nVersion 0.6.3 active.")
 
 Open()
 while(True):
