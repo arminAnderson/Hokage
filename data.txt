@@ -1,8 +1,5 @@
 {
     "projects": {
-        "molly.c": [
-            "follow the pointer"
-        ],
         "nickolas.b": [
             "shuriken toss 2",
             "space tour",
@@ -12,9 +9,6 @@
         ],
         "matthew.o": [
             "maze"
-        ],
-        "noah.v": [
-            "hide and seek"
         ],
         "naman.s": [
             "whats inside",
@@ -33,10 +27,7 @@
             "meteors deluxe"
         ],
         "nihal.g": [
-            "follow the pointer",
-            "apple picking",
-            "star spinner",
-            "hide and seek"
+            "apple picking"
         ],
         "grace.p": [
             "downhill ski"
@@ -74,8 +65,7 @@
             "meteors deluxe"
         ],
         "avreen.g": [
-            "alien explorer",
-            "mail truck"
+            "alien explorer"
         ],
         "ryder.b": [
             "rock paper scissors",
@@ -149,7 +139,6 @@
             "shuriken dodge",
             "ninja race"
         ],
-        "ethan.c": [],
         "brody.s": [
             "mail truck"
         ],
@@ -223,17 +212,11 @@
         "liv.a": [
             "ice cream doesnt work"
         ],
-        "armin.a": [
-            "cameron k"
-        ],
         "tyler.r": [
             "c.c doesnt round"
         ],
         "kaylee.c": [
             "doesnt turn around"
-        ],
-        "avreen.g": [
-            "all should be good besides alien explorer"
         ],
         "ethan.c": [
             "he finished ninja race, but the gdp broke so it didnt save",
@@ -241,33 +224,10 @@
         ],
         "brody.s": [
             "ask about mail truck having two buttons over the screen"
+        ],
+        "engine": [
+            "searching for names by just first name"
         ]
     },
-    "todo": {
-        "agastya.r": [
-            "fast food"
-        ],
-        "brandon.w": [
-            "side wall bounce",
-            "coordinate collector"
-        ],
-        "erin.c": [
-            "star spinner",
-            "follow the pointer"
-        ],
-        "garret.b": [
-            "hide and seek",
-            "fast food"
-        ],
-        "gavin.d": [
-            "hiding ninja"
-        ],
-        "jacob.n": [
-            "shuriken toss 2",
-            "zapper 2"
-        ],
-        "zoey.z": [
-            "shooting stars"
-        ]
-    }
+    "todo": {}
 }

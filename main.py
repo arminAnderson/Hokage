@@ -49,9 +49,10 @@ def Check(who):
             print("Ninja has no notes added.")
     else:
         for n in data["projects"]:
-            print(n + " has " + str(len(data["projects"][n])) + " projects to fix:")
-            for p in data["projects"][n]:
-                print(" - " + p)
+            if len(data["projects"][n]) > 0:
+                print(n + " has " + str(len(data["projects"][n])) + " projects to fix:")
+                for p in data["projects"][n]:
+                    print(" - " + p)
 
 def Remove(where, who, what):
     if who in data[where]:
@@ -116,10 +117,13 @@ def IssueCommand(command):
             elif com == "check":
                 Check(None)
             elif com == "queue":
-                print("Projects in queue:")
-                for n in data["todo"]:
-                    for p in data["todo"][n]:
-                        print(" - " + n + ": " + p)
+                if len(data["todo"]) > 0:
+                    print("Projects in queue:")
+                    for n in data["todo"]:
+                        for p in data["todo"][n]:
+                            print(" - " + n + ": " + p)
+                else:
+                    print("No projects to grade.")
             elif com == "grade":
                 s = WaitForYN("Are you sure you want to clear the whole grade queue?")
                 if s == "y":
