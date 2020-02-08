@@ -45,33 +45,22 @@
             "code breaker"
         ],
         "akul.s": [
-            "fast food",
-            "crystal ball",
-            "downhill ski"
+            "downhill ski",
+            "alien explorer"
         ],
         "caitlyn.g": [
             "apple picking",
             "fast food",
-            "maze"
+            "maze",
+            "parcel express"
         ],
         "daniel.z": [
             "downhill ski",
             "fast food",
             "hide and seek"
         ],
-        "evan.l": [
-            "spin the scene",
-            "rain catcher 6",
-            "ninja snacks"
-        ],
         "caden.p": [
-            "lift off",
             "rolling dice"
-        ],
-        "ben.m": [
-            "space tour",
-            "getting started",
-            "star spinner"
         ],
         "gavin.s": [
             "maze"
@@ -85,9 +74,7 @@
             "meteors deluxe"
         ],
         "avreen.g": [
-            "apple picking",
             "alien explorer",
-            "parcel express",
             "mail truck"
         ],
         "ryder.b": [
@@ -98,8 +85,9 @@
             "mail truck"
         ],
         "zoey.z": [
-            "shooting stars",
-            "rain catcher 6"
+            "rain catcher 6",
+            "whack a ninja",
+            "ninja supplies"
         ],
         "lorenzo.a": [
             "ninja puzzle"
@@ -117,7 +105,8 @@
             "star spinner"
         ],
         "josh.m": [
-            "star spinner"
+            "star spinner",
+            "laser beam pointer"
         ],
         "karissa.p": [
             "apple picking",
@@ -127,9 +116,6 @@
             "pick a picture",
             "fast food",
             "downhill ski"
-        ],
-        "felipe.b": [
-            "apple picking"
         ],
         "tyler.r": [
             "coordinate collector"
@@ -148,6 +134,33 @@
         ],
         "kaylee.c": [
             "rain catcher complete"
+        ],
+        "cali.k": [
+            "downhill ski"
+        ],
+        "brandon.w": [
+            "rain catcher 5"
+        ],
+        "lucca.b": [
+            "zapper 2",
+            "wall blaster"
+        ],
+        "ian.c": [
+            "shuriken dodge",
+            "ninja race"
+        ],
+        "ethan.c": [],
+        "brody.s": [
+            "mail truck"
+        ],
+        "robert.g": [
+            "maze"
+        ],
+        "kevin.g": [
+            "maze",
+            "hide and seek",
+            "fast food",
+            "crystal ball"
         ]
     },
     "notes": {
@@ -188,7 +201,8 @@
             "cannot revisit 0 and no losing text"
         ],
         "josh.m": [
-            "star doesnt spin with the mouse"
+            "star doesnt spin with the mouse",
+            "code on scene"
         ],
         "evan.g": [
             "talk to him about scratch",
@@ -198,7 +212,7 @@
             "dont joke about anything related to grades/performance"
         ],
         "felipe.b": [
-            "submitted fast food instead"
+            "apple picking was submitted on accident"
         ],
         "max.p": [
             "didnt make a scene"
@@ -217,6 +231,16 @@
         ],
         "kaylee.c": [
             "doesnt turn around"
+        ],
+        "avreen.g": [
+            "all should be good besides alien explorer"
+        ],
+        "ethan.c": [
+            "he finished ninja race, but the gdp broke so it didnt save",
+            "should do the bonus step on ball toss"
+        ],
+        "brody.s": [
+            "ask about mail truck having two buttons over the screen"
         ]
     },
     "todo": {
@@ -241,6 +265,9 @@
         "jacob.n": [
             "shuriken toss 2",
             "zapper 2"
+        ],
+        "zoey.z": [
+            "shooting stars"
         ]
     }
 }
