@@ -119,18 +119,12 @@
         "lucas.b": [
             "fast food"
         ],
-        "shuang.l": [
-            "maze"
-        ],
+        "shuang.l": [],
         "kaylee.c": [
             "rain catcher complete"
         ],
-        "cali.k": [
-            "downhill ski"
-        ],
-        "brandon.w": [
-            "rain catcher 5"
-        ],
+        "cali.k": [],
+        "brandon.w": [],
         "lucca.b": [
             "zapper 2",
             "wall blaster"
@@ -224,9 +218,6 @@
         ],
         "brody.s": [
             "ask about mail truck having two buttons over the screen"
-        ],
-        "engine": [
-            "searching for names by just first name"
         ]
     },
     "todo": {}

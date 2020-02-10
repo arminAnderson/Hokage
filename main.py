@@ -42,18 +42,20 @@ def Check(who):
         else:
             print("Ninja has no projects added.")
         if who in data["notes"]:
-            print("Notes: ")
+            print("Notes:")
             for p in data["notes"][who]:
                 print(" - " + p)
         else:
             print("Ninja has no notes added.")
     else:
-        for n in data["projects"]:
-            if len(data["projects"][n]) > 0:
-                print(n + " has " + str(len(data["projects"][n])) + " projects to fix:")
-                for p in data["projects"][n]:
-                    print(" - " + p)
-
+        s = {}
+        for who in data["projects"]:
+            s[who] = len(data["projects"][who])
+        for t in sorted(s, key = s.get, reverse = True):
+            print(t + " has " + str(s[t]) + " projects to fix:")
+            for p in data["projects"][t]:
+                print(" - " + p)
+            print("-----------------------------")
 def Remove(where, who, what):
     if who in data[where]:
         if what != None:
@@ -66,7 +68,7 @@ def Remove(where, who, what):
                 if what in data[where][who]:
                     data[where][who].remove(what)
                 else:
-                    print("Project not in " + who + "'s '" + where + "'.")
+                    print("'" + what + "' not in " + who + "'s " + where + ".")
         else:
             print("'what' is undefined.")
     else:
@@ -144,38 +146,11 @@ def IssueCommand(command):
                     print("Error printing.")
             elif com == "stats":
                 num = 0
-                na = None
-                nb = None
-                nc = None
-                a = 0
-                b = 0
-                c = 0
-                t = 0
                 for who in data["projects"]:
                     for what in data["projects"][who]:
                         num += 1
-                        t += 1
-                    if t > a:
-                        c = b
-                        nc = nb
-                        b = a
-                        nb = na
-                        a = t
-                        na = who
-                    elif t > b:
-                        c = b
-                        nc = nb
-                        b = t
-                        nb = who
-                    elif t > c:
-                        c = t
-                        nc = who
-                    t = 0
-                print("Number of projects to fix: " + str(num))
-                print(" - " + na + " has the most with " + str(a))
-                print(" - " + nb + " has the second most with " + str(b))
-                print(" - " + nc + " has the third most with " + str(c))
-                num = 0
+                print("Number of projects to fix: " + str(num))          
+                num = 0      
                 for who in data["todo"]:
                     for what in data["todo"][who]:
                         num += 1
@@ -184,17 +159,9 @@ def IssueCommand(command):
                 for i in sorted(data["projects"].keys()):
                     if len(data["projects"][i]) > 0:
                         print(i)
-            elif com == "commands":
-                group = [3, 4, 4, 2, 2, 2]
-                g = 0
-                i = 0
-                for c in commands:
+            elif com == "info":
+                for c in info:
                     print(" - " + c)
-                    g += 1
-                    if g == group[i]:
-                        g = 0
-                        i += 1
-                        print("")
             else:
                 print("'" + com + "' requires args.")
         else:
@@ -260,14 +227,11 @@ def IssueCommand(command):
             elif com == "note":
                 Add("notes", who, what)
             elif com == "unnote":
-                if who != None and what != None:
-                    if what == "all":
-                        while len(data["notes"][who]) > 0:
-                            Remove("notes", who, 0)
-                    else:
-                        Remove("notes", who, what)
+                if what == "all" and who in data["notes"]:
+                    while len(data["notes"][who]) > 0:
+                        Remove("notes", who, 0)
                 else:
-                    print("Invalid.")
+                    Remove("notes", who, what)
             else:
                 print("'" + com + "' doesn't use args.")
     else:
@@ -301,10 +265,46 @@ commands = [
     "dict",
     "json",
 
-    "commands"
+    "info"
 ]
 
-print("\nVersion 0.6.3 active.")
+info = [
+    "save",
+    "open",
+    "exit\n",
+
+    "check",
+    "check: name",
+    "queue",
+    "stats",
+    "who\n",
+
+    "add",
+    "add: name",
+    "add: name project",
+    "remove: name project",
+    "remove: name project index",
+    "remove: name all",
+    "fix: name project",
+    "fix: name project index",
+    "fix: name all",
+    "grade"
+    "grade: name project",
+    "grade: name project index",
+    "grade: name all\n",
+
+    "note: name note",
+    "unnote: name note",
+    "unnote: name note index",
+    "unnote: name all\n",
+
+    "dict",
+    "json\n",
+
+    "info"
+]
+
+print("\nVersion 0.7.5 active.")
 
 Open()
 while(True):
