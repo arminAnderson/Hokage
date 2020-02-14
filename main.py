@@ -282,13 +282,14 @@ info = [
     "add",
     "add: name",
     "add: name project",
+    "add: name project # note",
     "remove: name project",
     "remove: name project index",
     "remove: name all",
     "fix: name project",
     "fix: name project index",
     "fix: name all",
-    "grade"
+    "grade",
     "grade: name project",
     "grade: name project index",
     "grade: name all\n",
@@ -304,7 +305,7 @@ info = [
     "info"
 ]
 
-print("\nVersion 0.7.5 active.")
+print("\nVersion 0.7.6 active.")
 
 Open()
 while(True):

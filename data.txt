@@ -26,9 +26,6 @@
         "peter.h": [
             "meteors deluxe"
         ],
-        "nihal.g": [
-            "apple picking"
-        ],
         "grace.p": [
             "downhill ski"
         ],
@@ -77,7 +74,9 @@
         "zoey.z": [
             "rain catcher 6",
             "whack a ninja",
-            "ninja supplies"
+            "ninja supplies",
+            "balloon protect",
+            "zapper 1"
         ],
         "lorenzo.a": [
             "ninja puzzle"
@@ -85,18 +84,11 @@
         "makana.r": [
             "prove yourself pong"
         ],
-        "alexander.l": [
-            "zapper 2"
-        ],
         "tristan.a": [
             "rolling dice"
         ],
         "cj.g": [
             "star spinner"
-        ],
-        "josh.m": [
-            "star spinner",
-            "laser beam pointer"
         ],
         "karissa.p": [
             "apple picking",
@@ -127,8 +119,7 @@
             "wall blaster"
         ],
         "ian.c": [
-            "shuriken dodge",
-            "ninja race"
+            "dungeon escape"
         ],
         "brody.s": [
             "mail truck"
@@ -137,10 +128,32 @@
             "maze"
         ],
         "kevin.g": [
-            "maze",
             "hide and seek",
+            "crystal ball",
+            "downhill ski",
+            "apple picking"
+        ],
+        "dash.m": [
+            "candy sort"
+        ],
+        "julian.r": [
+            "hide and seek"
+        ],
+        "genevieve.g": [
+            "two player pong"
+        ],
+        "yuriy.l": [
+            "hide and seek"
+        ],
+        "viktor.l": [
             "fast food",
             "crystal ball"
+        ],
+        "eric.z": [
+            "ninja snacks"
+        ],
+        "garret.b": [
+            "pick a picture"
         ]
     },
     "notes": {
@@ -150,12 +163,6 @@
         "ryder.b": [
             "robot builder parts don't move back if you misplace them",
             "rock paper scissors no indication of who won"
-        ],
-        "zoey.z": [
-            "shooting star code on rocket.Update()",
-            "snowflake doesnt change bucket color",
-            "snowflake doesnt work",
-            "code in the wrong place"
         ],
         "evan.l": [
             "rain catcher 6 snowflake makes bucket black",
@@ -180,19 +187,12 @@
         "emma.m": [
             "cannot revisit 0 and no losing text"
         ],
-        "josh.m": [
-            "star doesnt spin with the mouse",
-            "code on scene"
-        ],
         "evan.g": [
             "talk to him about scratch",
             "allow more breaks"
         ],
         "kadence.k": [
             "dont joke about anything related to grades/performance"
-        ],
-        "felipe.b": [
-            "apple picking was submitted on accident"
         ],
         "max.p": [
             "didnt make a scene"
@@ -215,6 +215,18 @@
         ],
         "brody.s": [
             "ask about mail truck having two buttons over the screen"
+        ],
+        "ian.c": [
+            "ask why there are a bunch of walls"
+        ],
+        "viktor.l": [
+            "didn't attach the list code to anything"
+        ],
+        "eric.z": [
+            "doesnt delete when it hits the apple"
+        ],
+        "mckennah.m": [
+            "using computer 118 for robotics"
         ]
     },
     "todo": {}
