@@ -27,28 +27,16 @@
             "meteors deluxe"
         ],
         "grace.p": [
-            "downhill ski"
+            "parcel express"
         ],
         "emma.m": [
             "code breaker"
-        ],
-        "akul.s": [
-            "downhill ski",
-            "alien explorer"
         ],
         "caitlyn.g": [
             "apple picking",
             "fast food",
             "maze",
             "parcel express"
-        ],
-        "daniel.z": [
-            "downhill ski",
-            "fast food",
-            "hide and seek"
-        ],
-        "caden.p": [
-            "rolling dice"
         ],
         "gavin.s": [
             "maze"
@@ -76,23 +64,17 @@
             "whack a ninja",
             "ninja supplies",
             "balloon protect",
-            "zapper 1"
+            "zapper 1",
+            "space tour"
         ],
         "lorenzo.a": [
             "ninja puzzle"
-        ],
-        "makana.r": [
-            "prove yourself pong"
         ],
         "tristan.a": [
             "rolling dice"
         ],
         "cj.g": [
             "star spinner"
-        ],
-        "karissa.p": [
-            "apple picking",
-            "mail truck"
         ],
         "liv.a": [
             "pick a picture",
@@ -118,42 +100,38 @@
             "zapper 2",
             "wall blaster"
         ],
-        "ian.c": [
-            "dungeon escape"
-        ],
         "brody.s": [
             "mail truck"
         ],
         "robert.g": [
-            "maze"
+            "parcel express",
+            "downhill ski"
         ],
         "kevin.g": [
-            "hide and seek",
-            "crystal ball",
-            "downhill ski",
-            "apple picking"
+            "mail truck"
         ],
         "dash.m": [
             "candy sort"
         ],
-        "julian.r": [
-            "hide and seek"
-        ],
-        "genevieve.g": [
-            "two player pong"
-        ],
         "yuriy.l": [
-            "hide and seek"
-        ],
-        "viktor.l": [
-            "fast food",
-            "crystal ball"
+            "apple picking"
         ],
         "eric.z": [
             "ninja snacks"
         ],
-        "garret.b": [
-            "pick a picture"
+        "marshall.w": [
+            "downhill ski"
+        ],
+        "caden.p": [
+            "rolling dice"
+        ],
+        "karissa.p": [
+            "apple picking",
+            "mail truck"
+        ],
+        "adam.a": [],
+        "daniel.r": [
+            "hiding ninja"
         ]
     },
     "notes": {
@@ -164,17 +142,9 @@
             "robot builder parts don't move back if you misplace them",
             "rock paper scissors no indication of who won"
         ],
-        "evan.l": [
-            "rain catcher 6 snowflake makes bucket black",
-            "doesnt delete apple",
-            "snowflake makes the bucket black"
-        ],
         "gavin.d": [
             "lowercase v in 'visible'",
             "ninja never unhides"
-        ],
-        "grace.p": [
-            "ski gate hits player and stops"
         ],
         "cj.g": [
             "star is spinning backwards",
@@ -216,17 +186,26 @@
         "brody.s": [
             "ask about mail truck having two buttons over the screen"
         ],
-        "ian.c": [
-            "ask why there are a bunch of walls"
-        ],
-        "viktor.l": [
-            "didn't attach the list code to anything"
-        ],
         "eric.z": [
             "doesnt delete when it hits the apple"
         ],
         "mckennah.m": [
             "using computer 118 for robotics"
+        ],
+        "kabbie.k": [
+            "submitted a couple projects under '7kelly7' username"
+        ],
+        "grace.p": [
+            "double check collect the keys is submitted, she submitted correctly and still not there"
+        ],
+        "brandon.w": [
+            "says dragon ball z sucks"
+        ],
+        "adam.a": [
+            "level gen does not pause while timer is going down"
+        ],
+        "jaden.c": [
+            "check on his progress"
         ]
     },
     "todo": {}
