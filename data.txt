@@ -129,9 +129,15 @@
             "apple picking",
             "mail truck"
         ],
-        "adam.a": [],
         "daniel.r": [
             "hiding ninja"
+        ],
+        "genevieve.g": [
+            "ninja puzzle"
+        ],
+        "josiah.p": [
+            "balloon protect",
+            "whats inside"
         ]
     },
     "notes": {
