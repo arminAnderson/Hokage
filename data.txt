@@ -1,11 +1,8 @@
 {
     "projects": {
         "nickolas.b": [
-            "shuriken toss 2",
             "space tour",
-            "rolling dice",
-            "ninja battle",
-            "meteors 1"
+            "rolling dice"
         ],
         "matthew.o": [
             "maze"
@@ -17,33 +14,23 @@
             "rock paper scissors"
         ],
         "mason.r": [
-            "pong",
             "bubbles",
             "coconut chaos",
             "rain catcher 5",
             "rain catcher 4"
-        ],
-        "peter.h": [
-            "meteors deluxe"
-        ],
-        "grace.p": [
-            "parcel express"
         ],
         "emma.m": [
             "code breaker"
         ],
         "caitlyn.g": [
             "apple picking",
-            "fast food",
             "maze",
             "parcel express"
         ],
-        "gavin.s": [
-            "maze"
-        ],
         "max.p": [
             "apple picking",
-            "prove yourself"
+            "pong",
+            "zombie island"
         ],
         "jacob.n": [
             "lift off",
@@ -56,16 +43,11 @@
             "rock paper scissors",
             "whats inside"
         ],
-        "victor.l": [
-            "mail truck"
-        ],
         "zoey.z": [
             "rain catcher 6",
             "whack a ninja",
             "ninja supplies",
-            "balloon protect",
-            "zapper 1",
-            "space tour"
+            "balloon protect"
         ],
         "lorenzo.a": [
             "ninja puzzle"
@@ -93,13 +75,6 @@
         "lucas.b": [
             "fast food"
         ],
-        "kaylee.c": [
-            "rain catcher complete"
-        ],
-        "lucca.b": [
-            "zapper 2",
-            "wall blaster"
-        ],
         "brody.s": [
             "mail truck"
         ],
@@ -110,14 +85,8 @@
         "kevin.g": [
             "mail truck"
         ],
-        "dash.m": [
-            "candy sort"
-        ],
         "yuriy.l": [
             "apple picking"
-        ],
-        "eric.z": [
-            "ninja snacks"
         ],
         "marshall.w": [
             "downhill ski"
@@ -127,17 +96,42 @@
         ],
         "karissa.p": [
             "apple picking",
-            "mail truck"
+            "mail truck",
+            "spin a star",
+            "spin all objects"
         ],
         "daniel.r": [
-            "hiding ninja"
+            "hiding ninja",
+            "whack a ninja"
         ],
-        "genevieve.g": [
-            "ninja puzzle"
+        "noah.v": [
+            "maze",
+            "crystal ball"
+        ],
+        "jeffrey.b": [
+            "rain catcher 4"
+        ],
+        "julian.r": [
+            "pick a picture"
         ],
         "josiah.p": [
-            "balloon protect",
-            "whats inside"
+            "candy sort"
+        ],
+        "taran.h": [
+            "parcel express"
+        ],
+        "alec.b": [
+            "bubbles"
+        ],
+        "adam.a": [
+            "coordinate collector"
+        ],
+        "genevieve.g": [
+            "rain catcher 3"
+        ],
+        "eric.z": [
+            "meteors deluxe",
+            "color change"
         ]
     },
     "notes": {
@@ -147,10 +141,6 @@
         "ryder.b": [
             "robot builder parts don't move back if you misplace them",
             "rock paper scissors no indication of who won"
-        ],
-        "gavin.d": [
-            "lowercase v in 'visible'",
-            "ninja never unhides"
         ],
         "cj.g": [
             "star is spinning backwards",
@@ -170,20 +160,11 @@
         "kadence.k": [
             "dont joke about anything related to grades/performance"
         ],
-        "max.p": [
-            "didnt make a scene"
-        ],
-        "victor.l": [
-            "mail truck can drive off the road"
-        ],
         "liv.a": [
             "ice cream doesnt work"
         ],
         "tyler.r": [
             "c.c doesnt round"
-        ],
-        "kaylee.c": [
-            "doesnt turn around"
         ],
         "ethan.c": [
             "he finished ninja race, but the gdp broke so it didnt save",
@@ -192,17 +173,11 @@
         "brody.s": [
             "ask about mail truck having two buttons over the screen"
         ],
-        "eric.z": [
-            "doesnt delete when it hits the apple"
-        ],
         "mckennah.m": [
             "using computer 118 for robotics"
         ],
         "kabbie.k": [
             "submitted a couple projects under '7kelly7' username"
-        ],
-        "grace.p": [
-            "double check collect the keys is submitted, she submitted correctly and still not there"
         ],
         "brandon.w": [
             "says dragon ball z sucks"
@@ -212,6 +187,15 @@
         ],
         "jaden.c": [
             "check on his progress"
+        ],
+        "caden.p": [
+            "dice score only works if you click on both dice"
+        ],
+        "josiah.p": [
+            "accidentally submitted it"
+        ],
+        "genevieve.g": [
+            "rain catcher 3 -> no walking anim"
         ]
     },
     "todo": {}

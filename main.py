@@ -50,7 +50,8 @@ def Check(who):
     else:
         s = {}
         for who in data["projects"]:
-            s[who] = len(data["projects"][who])
+            if len(data["projects"][who]) > 0:
+                s[who] = len(data["projects"][who])
         for t in sorted(s, key = s.get, reverse = True):
             print(t + " has " + str(s[t]) + " projects to fix:")
             for p in data["projects"][t]:
@@ -173,7 +174,7 @@ def IssueCommand(command):
                     parts[1] = parts[1].lstrip()
                     parts[1] = parts[1].rstrip()
                     Add("projects", who, parts[0])
-                    Add("notes", who, parts[1])
+                    Add("notes", who, parts[0] + " -> " + parts[1])
                 else:
                     if what == None:
                         s = None
@@ -305,7 +306,7 @@ info = [
     "info"
 ]
 
-print("\nVersion 0.7.6 active.")
+print("\nVersion 0.7.8 active.")
 
 Open()
 while(True):
