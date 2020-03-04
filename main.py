@@ -2,6 +2,7 @@ import sys
 import json
 import os
 import subprocess
+from datetime import date
 from json.decoder import JSONDecodeError
 
 # - - - - - UTIL - - - - - #
@@ -131,7 +132,7 @@ def SignIn():
     return 0
 def Git():
     os.system('git add -A')
-    os.system('git commit -m "logout"')
+    os.system('git commit -m "logout' + str(date.today()) + '"')
     os.system('git push')
 def Exit():
     open('lock.txt', 'w').close()
@@ -382,9 +383,12 @@ info = [
     "info"
 ]
 
-proc = subprocess.Popen('git pull', stdout=subprocess.PIPE, shell=True)
-(out, err) = proc.communicate()
-print(out)
+out = subprocess.check_output('git pull', shell=True)
+out = out.decode("utf-8")
+out.strip()
+os.system('git pull')
+#if not out == "Already up to date.\n":
+#   print("Program now up to date. Try again.")
 
 print("\nVersion 0.9.0 active.")
 f = SignIn()
