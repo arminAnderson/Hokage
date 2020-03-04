@@ -1,6 +1,7 @@
 import sys
 import json
 import os
+import subprocess
 from json.decoder import JSONDecodeError
 
 # - - - - - UTIL - - - - - #
@@ -381,7 +382,10 @@ info = [
     "info"
 ]
 
-print(os.popen('git pull').read())
+proc = subprocess.Popen('git pull', stdout=subprocess.PIPE, shell=True)
+(out, err) = proc.communicate()
+print(out)
+
 print("\nVersion 0.9.0 active.")
 f = SignIn()
 if f == 0:
