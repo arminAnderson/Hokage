@@ -138,9 +138,9 @@ def Exit():
     print("Program terminated",end=", ")
     if s == "y":
         Save()
-        Git()
     else:
         print("without saving.")
+    Git()
     print("")
     sys.exit()
 
@@ -385,6 +385,7 @@ print("\nVersion 0.9.0 active.")
 f = SignIn()
 if f == 0:
     os.system('git pull')
+    Git()
     Open()
     while(True):
         command = input("\nEnter command: ")
