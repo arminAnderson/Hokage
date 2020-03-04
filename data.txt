@@ -39,10 +39,6 @@
         "avreen.g": [
             "alien explorer"
         ],
-        "ryder.b": [
-            "rock paper scissors",
-            "whats inside"
-        ],
         "zoey.z": [
             "rain catcher 6",
             "whack a ninja",
@@ -75,24 +71,12 @@
         "lucas.b": [
             "fast food"
         ],
-        "brody.s": [
-            "mail truck"
-        ],
-        "robert.g": [
-            "parcel express",
-            "downhill ski"
-        ],
-        "kevin.g": [
-            "mail truck"
-        ],
         "yuriy.l": [
-            "apple picking"
+            "apple picking",
+            "parcel express"
         ],
         "marshall.w": [
             "downhill ski"
-        ],
-        "caden.p": [
-            "rolling dice"
         ],
         "karissa.p": [
             "apple picking",
@@ -114,9 +98,6 @@
         "julian.r": [
             "pick a picture"
         ],
-        "josiah.p": [
-            "candy sort"
-        ],
         "taran.h": [
             "parcel express"
         ],
@@ -132,15 +113,38 @@
         "eric.z": [
             "meteors deluxe",
             "color change"
+        ],
+        "aidan.b": [
+            "maze"
+        ],
+        "jasmine.l": [
+            "apple picking"
+        ],
+        "alexander.l": [
+            "meteors deluxe"
+        ],
+        "evan.l": [
+            "whats inside"
+        ],
+        "xavier.l": [
+            "pong"
+        ],
+        "cole.a": [
+            "ninja race"
+        ],
+        "connor.i": [
+            "pong"
+        ],
+        "anabella.g": [
+            "alien explorer"
+        ],
+        "makana.r": [
+            "rain catcher prove yourself"
         ]
     },
     "notes": {
         "brandon.t": [
             "laser beam pointer does nothing"
-        ],
-        "ryder.b": [
-            "robot builder parts don't move back if you misplace them",
-            "rock paper scissors no indication of who won"
         ],
         "cj.g": [
             "star is spinning backwards",
@@ -170,9 +174,6 @@
             "he finished ninja race, but the gdp broke so it didnt save",
             "should do the bonus step on ball toss"
         ],
-        "brody.s": [
-            "ask about mail truck having two buttons over the screen"
-        ],
         "mckennah.m": [
             "using computer 118 for robotics"
         ],
@@ -182,21 +183,18 @@
         "brandon.w": [
             "says dragon ball z sucks"
         ],
-        "adam.a": [
-            "level gen does not pause while timer is going down"
-        ],
         "jaden.c": [
             "check on his progress"
         ],
-        "caden.p": [
-            "dice score only works if you click on both dice"
-        ],
-        "josiah.p": [
-            "accidentally submitted it"
-        ],
         "genevieve.g": [
             "rain catcher 3 -> no walking anim"
+        ],
+        "jasmine.l": [
+            "apple picking -> submitted someones alien explorer"
         ]
     },
-    "todo": {}
+    "todo": {},
+    "points": {
+        "genevieve.g": 1
+    }
 }

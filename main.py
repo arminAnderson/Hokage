@@ -18,35 +18,69 @@ def Open():
             temp = json.load(jsonFile)
             for where in temp:
                 for who in temp[where]:
-                    for what in temp[where][who]:
-                        Add(where, who, what)
+                    if where == "points":
+                        Points(who, temp[where][who])
+                    else:
+                        for what in temp[where][who]:
+                            Add(where, who, what)
         print("JSON loaded.")
     except JSONDecodeError:
         print("Error reading file.")
 def Add(where, who, what):
+    if where == "":
+        where = None
+    if who == "":
+        who = None
+    if what == "":
+        what = None
     if where != None and who != None and what != None:
         if not who in data[where]:
             data[where][who] = []
         if not what in data[where][who]:
             data[where][who].append(what)
-        else:
-            pass
+        return 1
     else:
         print("Missing argument.")
+        return 0
+def Points(who, what):
+    if who == "":
+        who = None
+    if what == "":
+        what = None
+    if who == None or what == None:
+        print("Missing argument.")
+        return 0
+    else:
+        try:
+            num = int(what)
+            old = 0
+            try:
+                old = int(data["points"][who])
+            except KeyError:
+                data["points"][who] = 0
+            data["points"][who] = old + num
+            return 1
+        except ValueError:
+            print("Missing argument.")
+            return 0
 def Check(who):
     if who != None:
         if who in data["projects"]:
-            print(who + " has " + str(len(data["projects"][who])) + " projects to fix:")
+            print(str(len(data["projects"][who])) + " projects to fix:")
             for p in data["projects"][who]:
                 print(" - " + p)
         else:
-            print("Ninja has no projects added.")
+            print("No projects.")
         if who in data["notes"]:
             print("Notes:")
             for p in data["notes"][who]:
                 print(" - " + p)
         else:
-            print("Ninja has no notes added.")
+            print("No notes.")
+        if who in data["points"]:
+            print(str(data["points"][who]) + " points.")
+        else:
+            print("No points.")
     else:
         s = {}
         for who in data["projects"]:
@@ -73,7 +107,26 @@ def Remove(where, who, what):
         else:
             print("'what' is undefined.")
     else:
-        print("Ninja not found.")
+        if where == "projects":
+            print("No projects found.")
+        elif where == "notes":
+            print("No notes found.")
+def SignIn():
+    user = None
+    with open('lock.txt') as lock:
+        user = lock.readline().strip()
+        if user == "":
+            user = None
+        if user == None:
+            user = None
+            while user == None or user == "":
+                user = input("Name?: ")
+        else:
+            print(user + " is currently active. Exiting.\n")
+            return 1
+    with open('lock.txt', 'w') as lock:
+        lock.write(user)
+    return 0
 def Exit():
     s = WaitForYN("Save?")
     print("Program terminated",end=", ")
@@ -96,12 +149,15 @@ def IssueCommand(command):
             args = commandString[1].split(None, 1)
             who = args[0].lstrip()
             who = args[0].rstrip()
+            if who == "":
+                who = None
             what = args[1].lstrip()
             what = args[1].rstrip()
+            if what == "":
+                what = None
         except IndexError:
             if who == None and what == None:
                 args = None
-            pass
         if args == None:
             if com == "save":
                 Save()
@@ -112,7 +168,7 @@ def IssueCommand(command):
             elif com == "add":
                 s = None
                 while True:
-                    s = input("add -> ")
+                    s = input("add | ")
                     if s == "done":
                         break
                     IssueCommand("add:" + s)
@@ -174,12 +230,13 @@ def IssueCommand(command):
                     parts[1] = parts[1].lstrip()
                     parts[1] = parts[1].rstrip()
                     Add("projects", who, parts[0])
-                    Add("notes", who, parts[0] + " -> " + parts[1])
+                    if parts[0] != "" and parts[1] != "":
+                        Add("notes", who, parts[0] + " | " + parts[1])
                 else:
                     if what == None:
                         s = None
                         while True:
-                            s = input("add for " + who + " -> ")
+                            s = input("add for " + who + " | ")
                             s.strip()
                             if s == "done" or s == "":
                                 break
@@ -189,6 +246,12 @@ def IssueCommand(command):
                         Add("projects", who, what)
             elif com == "check":
                 Check(who)
+            elif com == "points":
+                if Points(who, what) == 1:
+                    print("Now has " + str(data["points"][who]) + " points.")
+            elif com == "wipe":
+                IssueCommand("remove:" + who + " all")
+                IssueCommand("unnote:" + who + " all")
             elif com == "remove":
                 if what == "all" and who in data["projects"]:
                     while len(data["projects"][who]) > 0:
@@ -244,6 +307,7 @@ data = {}
 data["projects"] = {}
 data["notes"] = {}
 data["todo"] = {}
+data["points"] = {}
 
 commands = [
     "save",
@@ -257,8 +321,10 @@ commands = [
 
     "add",
     "remove",
+    "wipe",
     "fix",
     "grade",
+    "points",
 
     "note",
     "unnote",
@@ -287,13 +353,15 @@ info = [
     "remove: name project",
     "remove: name project index",
     "remove: name all",
+    "wipe: name",
     "fix: name project",
     "fix: name project index",
     "fix: name all",
     "grade",
     "grade: name project",
     "grade: name project index",
-    "grade: name all\n",
+    "grade: name all",
+    "points: name value\n",
 
     "note: name note",
     "unnote: name note",
@@ -306,9 +374,10 @@ info = [
     "info"
 ]
 
-print("\nVersion 0.7.8 active.")
-
-Open()
-while(True):
-    command = input("\nEnter command: ")
-    IssueCommand(command)
+print("\nVersion 0.9.0 active.")
+f = SignIn()
+if f == 0:
+    Open()
+    while(True):
+        command = input("\nEnter command: ")
+        IssueCommand(command)
