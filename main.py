@@ -139,13 +139,11 @@ def SignIn():
 def Git():
     os.system('git add -A')
     os.system('git commit -m "logout ' + str(date.today()) + '"')
-    out = subprocess.check_output('git push', shell=True)
-    out = out.decode("utf-8")
-    out.strip()
-    if out.find("rejected") != -1:
-        print("FAILURE")
-        print("FAILURE")
-        print("FAILURE")
+    try:
+        out = subprocess.check_output('git push', shell=True)
+    except subprocess.CalledProcessError:
+        print("Other user is signed in, exiting.")
+        sys.exit()
     os.system('git push')
 def Exit():
     open('lock.txt', 'w').close()
