@@ -381,10 +381,10 @@ info = [
     "info"
 ]
 
+print(os.popen('git pull').read())
 print("\nVersion 0.9.0 active.")
 f = SignIn()
 if f == 0:
-    os.system('git pull')
     Git()
     Open()
     while(True):
