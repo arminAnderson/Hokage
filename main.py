@@ -1,5 +1,6 @@
 import sys
 import json
+import os
 from json.decoder import JSONDecodeError
 
 # - - - - - UTIL - - - - - #
@@ -128,10 +129,14 @@ def SignIn():
         lock.write(user)
     return 0
 def Exit():
+    open('lock.txt', 'w').close()
     s = WaitForYN("Save?")
     print("Program terminated",end=", ")
     if s == "y":
         Save()
+        os.system('git add -A')
+        os.system('git commit -m "logout"')
+        os.system('git push')
     else:
         print("without saving.")
     print("")
