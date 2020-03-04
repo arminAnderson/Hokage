@@ -127,6 +127,12 @@ def SignIn():
         else:
             print(user + " is currently active. Exiting.\n")
             return 1
+    os.system('git pull')
+    with open('lock.txt') as lock:
+        t = lock.readline().strip()
+        if not t == "":
+            print(user + " is currently active. Exiting.\n")
+            return 1
     with open('lock.txt', 'w') as lock:
         lock.write(user)
     return 0
