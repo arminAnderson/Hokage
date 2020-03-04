@@ -132,7 +132,7 @@ def SignIn():
     return 0
 def Git():
     os.system('git add -A')
-    os.system('git commit -m "logout' + str(date.today()) + '"')
+    os.system('git commit -m "logout ' + str(date.today()) + '"')
     os.system('git push')
 def Exit():
     open('lock.txt', 'w').close()
