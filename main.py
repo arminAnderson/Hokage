@@ -128,15 +128,17 @@ def SignIn():
     with open('lock.txt', 'w') as lock:
         lock.write(user)
     return 0
+def Git():
+    os.system('git add -A')
+    os.system('git commit -m "logout"')
+    os.system('git push')
 def Exit():
     open('lock.txt', 'w').close()
     s = WaitForYN("Save?")
     print("Program terminated",end=", ")
     if s == "y":
         Save()
-        os.system('git add -A')
-        os.system('git commit -m "logout"')
-        os.system('git push')
+        Git()
     else:
         print("without saving.")
     print("")
@@ -382,6 +384,7 @@ info = [
 print("\nVersion 0.9.0 active.")
 f = SignIn()
 if f == 0:
+    os.system('git pull')
     Open()
     while(True):
         command = input("\nEnter command: ")

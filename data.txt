@@ -199,6 +199,7 @@
         "kadence.k": 3,
         "josiah.p": 100,
         "makana.r": 2,
-        "evan.g": 2
+        "evan.g": 2,
+        "naman.s": 1
     }
 }
