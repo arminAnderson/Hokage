@@ -129,12 +129,12 @@ def Git(user, _in):
         out = subprocess.check_output('git pull', shell=True)
         out = out.decode("utf-8")
     except subprocess.CalledProcessError:
-        s = WaitForYN("You screwed something up. Discard local changes?")
-        if s == y:
+        s = WaitForYN("\nYou screwed something up. Discard local changes?")
+        if s == "y":
             os.system('git reset --hard origin/master')
             print("\n", end="")
         else:   
-            print("Exiting safely. Probably should contact Armin")
+            print("Exiting safely. Probably should contact Armin.")
         return 1
     if out.find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
