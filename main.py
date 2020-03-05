@@ -115,30 +115,36 @@ def Remove(where, who, what):
         elif where == "notes":
             print("No notes found.")
 def SignIn():
-    user = None
+    user = ""
+    while user == ""
+        user = input("Enter username: ")
+    Git(user, " in ")
+    Open()
+    return 0
+def Git(user, _in):
     print("Pulling repo...")
     os.system('git pull')
     with open('lock.txt') as lock:
         t = lock.readline().strip()
         if not t == "":
-            print(user + " is currently active. Exiting.\n")
+            print(t + " is currently active. Exiting.\n")
             return 1
-    with open('lock.txt', 'w') as lock:
-        lock.write(user)
-    Git()
-    Open()
-    return 0
-def Git():
-    os.system('git add -A')
-    with open('lock.txt') as lock:
-        os.system('git commit -m "logout ' + lock.readline().strip() + " | " + str(date.today()) + '"')
+        print("Pushing to repo...")
+        os.system('git add -A')
+        os.system('git commit -m "logout ' + user + " | " + _in + str(date.today()) + '"')
     try:
         out = subprocess.check_output('git push', shell=True)
     except subprocess.CalledProcessError:
-        print("Other user is signed in, exiting.")
+        os.system('git reset --hard origin/master')
+        print("\n")
+        print("Other user is signed in. System exiting without saving.")
         sys.exit()
     os.system('git push')
+    return 0
 def Exit():
+    t = None
+    with open('lock.txt') as lock:
+        t = lock.readline().strip()
     open('lock.txt', 'w').close()
     s = WaitForYN("Save?")
     print("Program terminated",end=", ")
@@ -146,7 +152,7 @@ def Exit():
         Save()
     else:
         print("without saving.")
-    Git()
+    Git(t, " out ")
     print("")
     sys.exit()
 
