@@ -215,6 +215,7 @@
         "evan.g": 2,
         "naman.s": 2,
         "zoey.z": 2,
-        "kennedy.k": 1
+        "kennedy.k": 1,
+        "gavin.s": 5
     }
 }
