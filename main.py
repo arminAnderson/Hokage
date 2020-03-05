@@ -118,7 +118,8 @@ def SignIn():
     user = ""
     while user == "":
         user = input("Enter username: ")
-    Git(user, " in ")
+    if Git(user, " in ") == 1:
+        return 1
     Open()
     return 0
 def Git(user, _in):
@@ -127,7 +128,9 @@ def Git(user, _in):
     with open('lock.txt') as lock:
         t = lock.readline().strip()
         if not t == "":
-            print(t + " is currently active. Exiting.\n")
+            os.system('git reset --hard origin/master')
+            print("\n")
+            print(t + " is signed in. System exiting without saving.")
             return 1
     if _in != " out ":
         with open('lock.txt', 'w') as lock:
