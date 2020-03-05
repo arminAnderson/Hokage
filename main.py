@@ -127,6 +127,7 @@ def Git(user, _in):
     out = None
     try:
         out = subprocess.check_output('git pull', shell=True)
+        print("HERE")
         out = out.decode("utf-8")
     except subprocess.CalledProcessError:
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
