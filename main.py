@@ -124,7 +124,11 @@ def SignIn():
     return 0
 def Git(user, _in):
     print("Pulling repo...")
-    os.system('git pull')
+    out = subprocess.check_output('git pull', shell=True)
+    out = out.decode("utf-8")
+    if out.find("main.py") != -1:
+        print("Old version detected. System exiting without saving. Try again.\n")
+        return 1
     with open('lock.txt') as lock:
         t = lock.readline().strip()
         if not t == "":
@@ -143,7 +147,7 @@ def Git(user, _in):
     except subprocess.CalledProcessError:
         os.system('git reset --hard origin/master')
         print("\n", end="")
-        print("Other user is signed in. System exiting without saving.\n")
+        print("Simultaneous sign in detected. System exiting without saving.\n")
         sys.exit()
     return 0
 def Exit():
