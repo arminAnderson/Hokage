@@ -147,7 +147,7 @@ def Git(user, _in):
     except subprocess.CalledProcessError:
         os.system('git reset --hard origin/master')
         print("\n", end="")
-        print("Simultaneous sign in detected. System exiting without saving.\n")
+        print("Simultaneous logins detected. System exiting without saving.\n")
         sys.exit()
     return 0
 def Exit():
