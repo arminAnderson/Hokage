@@ -193,6 +193,14 @@ def IssueCommand(command):
                         break
                     IssueCommand("add:" + s)
                 print("Finished.")
+            elif com == "points":
+                s = None
+                while True:
+                    s = input("points | ")
+                    if s == "done":
+                        break
+                    IssueCommand("points:" + s)
+                print("Finished.")
             elif com == "check":
                 Check(None)
             elif com == "queue":
@@ -381,6 +389,7 @@ info = [
     "grade: name project",
     "grade: name project index",
     "grade: name all",
+    "points",
     "points: name value\n",
 
     "note: name note",
