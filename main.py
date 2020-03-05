@@ -221,6 +221,10 @@ def IssueCommand(command):
                         break
                     IssueCommand("points:" + s)
                 print("Finished.")
+            elif com == "score":
+                for n in data["points"]:
+                    for p in sorted(data["points"].values()):
+                        print(p)
             elif com == "check":
                 Check(None)
             elif com == "queue":
@@ -373,6 +377,7 @@ commands = [
     "fix",
     "grade",
     "points",
+    "score",
 
     "note",
     "unnote",
@@ -410,7 +415,8 @@ info = [
     "grade: name project index",
     "grade: name all",
     "points",
-    "points: name value\n",
+    "points: name value",
+    "score",
 
     "note: name note",
     "unnote: name note",
