@@ -129,8 +129,9 @@ def Git(user, _in):
         if not t == "":
             print(t + " is currently active. Exiting.\n")
             return 1
-    with open('lock.txt', 'w') as lock:
-        lock.write(user)
+    if _in != " out ":
+        with open('lock.txt', 'w') as lock:
+            lock.write(user)
     print("Pushing to repo...")
     os.system('git add -A')
     os.system('git commit -m "logout ' + user + " | " + _in + str(date.today()) + '"')
@@ -403,7 +404,7 @@ info = [
     "info"
 ]
 
-print("\nVersion 0.9.0 active.\n")
+print("\nVersion 0.9.9 active.\n")
 f = SignIn()
 if f == 0:
     while(True):
