@@ -374,7 +374,7 @@ commands = [
 info = [
     #"save",
     #"open",
-    "exit\n",
+    "\nexit\n",
 
     "check",
     "check: name",
