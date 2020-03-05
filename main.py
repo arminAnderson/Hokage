@@ -130,7 +130,7 @@ def Git(user, _in):
         if not t == "":
             os.system('git reset --hard origin/master')
             print("\n", end="")
-            print(t + " is signed in. System exiting without saving.")
+            print(t + " is signed in. System exiting without saving.\n")
             return 1
     if _in != " out ":
         with open('lock.txt', 'w') as lock:
@@ -143,7 +143,7 @@ def Git(user, _in):
     except subprocess.CalledProcessError:
         os.system('git reset --hard origin/master')
         print("\n", end="")
-        print("Other user is signed in. System exiting without saving.")
+        print("Other user is signed in. System exiting without saving.\n")
         sys.exit()
     return 0
 def Exit():
