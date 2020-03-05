@@ -153,8 +153,7 @@
         ],
         "nadia.a": [
             "whack a ninja"
-        ],
-        "kabbie.k": []
+        ]
     },
     "notes": {
         "brandon.t": [
@@ -191,7 +190,6 @@
         "mckennah.m": [
             "using computer 118 for robotics"
         ],
-        "kabbie.k": [],
         "brandon.w": [
             "says dragon ball z sucks"
         ],

@@ -139,7 +139,6 @@ def Git(user, _in):
         print("\n")
         print("Other user is signed in. System exiting without saving.")
         sys.exit()
-    os.system('git push')
     return 0
 def Exit():
     t = None
