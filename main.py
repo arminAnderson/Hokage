@@ -346,8 +346,8 @@ data["todo"] = {}
 data["points"] = {}
 
 commands = [
-    "save",
-    "open",
+    #"save",
+    #"open",
     "exit",
 
     "check",
@@ -365,15 +365,15 @@ commands = [
     "note",
     "unnote",
 
-    "dict",
-    "json",
+    #"dict",
+    #"json",
 
     "info"
 ]
 
 info = [
-    "save",
-    "open",
+    #"save",
+    #"open",
     "exit\n",
 
     "check",
@@ -405,8 +405,8 @@ info = [
     "unnote: name note index",
     "unnote: name all\n",
 
-    "dict",
-    "json\n",
+    #"dict",
+    #"json\n",
 
     "info"
 ]
