@@ -222,7 +222,7 @@ def IssueCommand(command):
                     IssueCommand("points:" + s)
                 print("Finished.")
             elif com == "score":
-                d_view = [ (v,k) for k,v in data["points"].iteritems() ]
+                d_view = [ (v,k) for k,v in data["points"].items() ]
                 d_view.sort(reverse=True) # natively sort tuples by first element
                 for v,k in d_view:
                     print("%s: %d" % (k,v))
