@@ -165,6 +165,7 @@ def Git(user, _in):
         print("\n", end="")
         print("Simultaneous logins detected. System exiting without saving.\n")
         sys.exit()
+    out = ""
     return 0
 def Exit():
     t = None
