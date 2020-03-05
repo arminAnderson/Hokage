@@ -126,7 +126,7 @@ def Git(user, _in):
     print("Pulling repo...")
     out = None
     try:
-        out = subprocess.check_output('git pull', shell=True)
+        out = subprocess.check_output('git pull', shell=True, stderr=subprocess.STDOUT)
         out = out.decode("utf-8")
     except subprocess.CalledProcessError:
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
@@ -140,7 +140,7 @@ def Git(user, _in):
         print("Old version detected. System exiting without saving. Try again.\n")
         return 1
     print("Verifying integrity...")
-    out = subprocess.check_output('git status', shell=True)
+    out = subprocess.check_output('git status', shell=True, stderr=subprocess.STDOUT)
     out = out.decode("utf-8")
     if out.find("lock.txt") != -1 and _in == " in ":
         print("Don't edit 'lock.txt', dumbass.\n")
@@ -159,7 +159,7 @@ def Git(user, _in):
     os.system('git add -A')
     os.system('git commit -m "log' + _in + user + ' | ' + str(date.today()) + '"')
     try:
-        out = subprocess.check_output('git push', shell=True)
+        out = subprocess.check_output('git push', shell=True, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError:
         os.system('git reset --hard origin/master')
         print("\n", end="")
