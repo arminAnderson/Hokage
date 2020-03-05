@@ -131,7 +131,7 @@ def Git(user, _in):
         return 1
     out = subprocess.check_output('git status', shell=True)
     out = out.decode("utf-8")
-    if out.find("lock.txt") != -1 and _in = " in ":
+    if out.find("lock.txt") != -1 and _in == " in ":
         print("Don't edit 'lock.txt', dumbass.\n")
         return 1
     with open('lock.txt') as lock:
