@@ -137,7 +137,7 @@ def Git(user, _in):
             lock.write(user)
     print("Pushing to repo...")
     os.system('git add -A')
-    os.system('git commit -m "logout ' + user + " | " + _in + str(date.today()) + '"')
+    os.system('git commit -m "log' + _in + ' ' + user + ' | ' + str(date.today()) + '"')
     try:
         out = subprocess.check_output('git push', shell=True)
     except subprocess.CalledProcessError:
