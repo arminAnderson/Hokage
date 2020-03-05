@@ -222,9 +222,8 @@ def IssueCommand(command):
                     IssueCommand("points:" + s)
                 print("Finished.")
             elif com == "score":
-                for n in data["points"]:
-                    for p in sorted(data["points"].values()):
-                        print(p)
+                for p in sorted(data["points"].values()):
+                    print(p + p.key)
             elif com == "check":
                 Check(None)
             elif com == "queue":
