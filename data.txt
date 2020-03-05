@@ -102,7 +102,8 @@
             "parcel express"
         ],
         "alec.b": [
-            "bubbles"
+            "bubbles",
+            "pong"
         ],
         "adam.a": [
             "coordinate collector"
@@ -140,7 +141,20 @@
         ],
         "makana.r": [
             "rain catcher prove yourself"
-        ]
+        ],
+        "eriz.z": [
+            "meteors deluxe"
+        ],
+        "logan.r": [
+            "pong"
+        ],
+        "evan.g": [
+            "pong prove yourself"
+        ],
+        "nadia.a": [
+            "whack a ninja"
+        ],
+        "kabbie.k": []
     },
     "notes": {
         "brandon.t": [
@@ -177,9 +191,7 @@
         "mckennah.m": [
             "using computer 118 for robotics"
         ],
-        "kabbie.k": [
-            "submitted a couple projects under '7kelly7' username"
-        ],
+        "kabbie.k": [],
         "brandon.w": [
             "says dragon ball z sucks"
         ],
@@ -191,6 +203,9 @@
         ],
         "jasmine.l": [
             "apple picking -> submitted someones alien explorer"
+        ],
+        "logan.r": [
+            "pong | offset is wrong"
         ]
     },
     "todo": {},
@@ -200,6 +215,8 @@
         "josiah.p": 100,
         "makana.r": 2,
         "evan.g": 2,
-        "naman.s": 2
+        "naman.s": 2,
+        "zoey.z": 2,
+        "kennedy.k": 1
     }
 }
