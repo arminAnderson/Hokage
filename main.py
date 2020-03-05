@@ -129,9 +129,11 @@ def Git(user, _in):
         if not t == "":
             print(t + " is currently active. Exiting.\n")
             return 1
-        print("Pushing to repo...")
-        os.system('git add -A')
-        os.system('git commit -m "logout ' + user + " | " + _in + str(date.today()) + '"')
+    with open('lock.txt', 'w') as lock:
+        lock.write(user)
+    print("Pushing to repo...")
+    os.system('git add -A')
+    os.system('git commit -m "logout ' + user + " | " + _in + str(date.today()) + '"')
     try:
         out = subprocess.check_output('git push', shell=True)
     except subprocess.CalledProcessError:
