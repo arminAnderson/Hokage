@@ -116,7 +116,7 @@ def Remove(where, who, what):
             print("No notes found.")
 def SignIn():
     user = ""
-    while user == ""
+    while user == "":
         user = input("Enter username: ")
     Git(user, " in ")
     Open()
