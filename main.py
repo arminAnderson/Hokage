@@ -203,11 +203,7 @@ def IssueCommand(command):
             if who == None and what == None:
                 args = None
         if args == None:
-            if com == "save":
-                Save()
-            elif com == "open":
-                Open()
-            elif com == "exit": 
+            if com == "exit": 
                 Exit()    
             elif com == "add":
                 s = None
