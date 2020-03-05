@@ -129,6 +129,11 @@ def Git(user, _in):
     if out.find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
         return 1
+    out = subprocess.check_output('git status', shell=True)
+    out = out.decode("utf-8")
+    if out.find("lock.txt") != -1:
+        print("Don't edit 'lock.txt', dumbass.\n")
+        return 1
     with open('lock.txt') as lock:
         t = lock.readline().strip()
         if not t == "":
