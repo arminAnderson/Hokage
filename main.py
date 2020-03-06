@@ -126,43 +126,39 @@ def Git(user, _in):
     print("Pulling repo...")
     out = None
     try:
-        out = subprocess.run('git pull', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        out = out.decode("utf-8")
+        out = subprocess.run('git pull', shell=True, capture_output=True)
     except subprocess.CalledProcessError:
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
         if s == "y":
-            os.system('git reset --hard origin/master')
-            print("\n", end="")
+            out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
+            print("Local changes saved.")
         else:   
             print("Exiting safely. Contact Armin.")
         return 1
-    if out.find("main.py") != -1:
+    if out.stdout.find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
         return 1
     print("Verifying integrity...")
-    out = subprocess.check_output('git status', shell=True)
-    out = out.decode("utf-8")
-    if out.find("lock.txt") != -1 and _in == " in ":
+    out = subprocess.run('git status', shell=True, capture_output=True)
+    if out.stdout.find("lock.txt") != -1 and _in == " in ":
         print("Don't edit 'lock.txt', dumbass.\n")
         return 1
     with open('lock.txt') as lock:
         t = lock.readline().strip()
         if not t == "":
-            os.system('git reset --hard origin/master')
-            print("\n", end="")
+            out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
             print(t + " is signed in. System exiting without saving.\n")
             return 1
     if _in != " out ":
         with open('lock.txt', 'w') as lock:
             lock.write(user)
     print("Pushing to repo...")
-    os.system('git add -A')
-    os.system('git commit -m "log' + _in + user + ' | ' + str(date.today()) + '"')
+    out = subprocess.run('git add -A', shell=True, capture_output=True)
+    out = subprocess.run('git commit -m "log' + _in + user + ' | ' + str(date.today()) + '"', shell=True, capture_output=True)
     try:
-        out = subprocess.check_output('git push', shell=True)
+        out = subprocess.run('git push', shell=True, capture_output=True)
     except subprocess.CalledProcessError:
-        os.system('git reset --hard origin/master')
-        print("\n", end="")
+        out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
         print("Simultaneous logins detected. System exiting without saving.\n")
         sys.exit()
     return 0
