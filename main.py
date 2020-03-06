@@ -135,13 +135,14 @@ def Git(user, _in):
         else:   
             print("Exiting safely. Contact Armin.")
         return 1
-    print(out.stdout)
-    if out.stdout.find("main.py") != -1:
+    converted = out.stdout.decode("utf-8")
+    if converted.find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
         return 1
     print("Verifying integrity...")
     out = subprocess.run('git status', shell=True, capture_output=True)
-    if out.stdout.find("lock.txt") != -1 and _in == " in ":
+    converted = out.stdout.decode("utf-8")
+    if converted.find("lock.txt") != -1 and _in == " in ":
         print("Don't edit 'lock.txt', dumbass.\n")
         return 1
     with open('lock.txt') as lock:
