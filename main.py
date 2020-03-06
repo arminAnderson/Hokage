@@ -128,7 +128,6 @@ def Git(user, _in):
     out = subprocess.run('git pull', shell=True, capture_output=True)
     print("GOOD: " + out.stdout.decode("utf-8"))
     print("BAD:" + out.stderr.decode("utf-8"))
-    print("change");
     if out.stderr.decode("utf-8") == "message":
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
         if s == "y":
