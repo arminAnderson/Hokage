@@ -135,6 +135,7 @@ def Git(user, _in):
         else:   
             print("Exiting safely. Contact Armin.")
         return 1
+    print(out.stdout)
     if out.stdout.find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
         return 1
