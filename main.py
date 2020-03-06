@@ -431,7 +431,7 @@ info = [
     "info"
 ]
 
-print("\nVersion 0.1.0 active.\n")
+print("\nVersion 1.0.0 active.\n")
 f = SignIn()
 if f == 0:
     while(True):
