@@ -132,7 +132,7 @@ def Git(user, _in):
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
         if s == "y":
             out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-            print("Local changes saved.")
+            print("Local changes wiped.")
         else:   
             print("Exiting safely. Contact Armin.")
         return 1
