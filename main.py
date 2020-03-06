@@ -125,13 +125,8 @@ def SignIn():
 def Git(user, _in):
     print("Pulling repo...")
     out = None
-    try:
-        out = subprocess.run('git pull', shell=True, capture_output=True)
-        print(out.stdout.decode("utf-8"))
-        print(out.stderr.decode("utf-8"))
-        if out.stderr.decode("utf-8") == "":
-            print("No error")
-    except subprocess.CalledProcessError:
+    out = subprocess.run('git pull', shell=True, capture_output=True)
+    if out.stderr.decode("utf-8") != "":
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
         if s == "y":
             out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
@@ -139,14 +134,12 @@ def Git(user, _in):
         else:   
             print("Exiting safely. Contact Armin.")
         return 1
-    converted = out.stdout.decode("utf-8")
-    if converted.find("main.py") != -1:
+    if out.stdout.decode("utf-8").find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
         return 1
     print("Verifying integrity...")
     out = subprocess.run('git status', shell=True, capture_output=True)
-    converted = out.stdout.decode("utf-8")
-    if converted.find("lock.txt") != -1 and _in == " in ":
+    if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
         print("Don't edit 'lock.txt', dumbass.\n")
         return 1
     with open('lock.txt') as lock:
@@ -161,9 +154,8 @@ def Git(user, _in):
     print("Pushing to repo...")
     out = subprocess.run('git add -A', shell=True, capture_output=True)
     out = subprocess.run('git commit -m "log' + _in + user + ' | ' + str(date.today()) + '"', shell=True, capture_output=True)
-    try:
-        out = subprocess.run('git push', shell=True, capture_output=True)
-    except subprocess.CalledProcessError:
+    out = subprocess.run('git push', shell=True, capture_output=True)
+    if out.stderr.decode("utf-8") != "":
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
         print("Simultaneous logins detected. System exiting without saving.\n")
         sys.exit()
