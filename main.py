@@ -225,7 +225,7 @@ def IssueCommand(command):
                 a = [(v,k) for k,v in data["points"].items()]
                 a.sort(reverse=True) # natively sort tuples by first element
                 for v,k in a:
-                    print("%s | %d" % (k,v))
+                    print("%d | %s" % (v,k))
             elif com == "check":
                 Check(None)
             elif com == "queue":
