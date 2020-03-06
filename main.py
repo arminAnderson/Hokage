@@ -123,11 +123,15 @@ def SignIn():
     Open()
     return 0
 def Git(user, _in):
-    print("Pulling repo...")
     out = None
+    print("Verifying integrity...")
+    out = subprocess.run('git status', shell=True, capture_output=True)
+    if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
+        out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
+        print("Don't edit 'lock.txt', dumbass. Looking at you, " + user + ".\n")
+        return 1
+    print("Pulling repo...")
     out = subprocess.run('git pull', shell=True, capture_output=True)
-    print("GOOD: " + out.stdout.decode("utf-8"))
-    print("BAD:" + out.stderr.decode("utf-8"))
     if out.stderr.decode("utf-8").find("error") != -1:
         s = WaitForYN("\nYou broke something. Discard local changes?")
         if s == "y":
@@ -138,12 +142,6 @@ def Git(user, _in):
         return 1
     if out.stdout.decode("utf-8").find("main.py") != -1:
         print("Old version detected. System exiting without saving. Try again.\n")
-        return 1
-    print("Verifying integrity...")
-    out = subprocess.run('git status', shell=True, capture_output=True)
-    if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
-        out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-        print("Don't edit 'lock.txt', dumbass. Looking at you, " + user + ".\n")
         return 1
     with open('lock.txt') as lock:
         t = lock.readline().strip()
