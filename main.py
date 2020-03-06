@@ -126,7 +126,9 @@ def Git(user, _in):
     out = None
     print("Verifying integrity...")
     out = subprocess.run('python --version', shell=True, capture_output=True)
-    print(out.stdout.decode("utf-8").rsplit('.', 1)[0])
+    if out.stdout.decode("utf-8").rsplit('.', 1)[0]) != pyV:
+        print("Python is not correct version. Need " + pyV + ".x, installed is " + out.stdout.decode("utf-8"), end="")
+        return 1
     out = subprocess.run('git status', shell=True, capture_output=True)
     if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
@@ -353,7 +355,7 @@ def IssueCommand(command):
     
 
 # - - - - - MAIN - - - - - #
-pyV = 3.8
+pyV = "Python 3.8"
 
 data = {}
 data["projects"] = {}
