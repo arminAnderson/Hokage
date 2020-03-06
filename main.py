@@ -125,6 +125,8 @@ def SignIn():
 def Git(user, _in):
     out = None
     print("Verifying integrity...")
+    out = subprocess.run('python --version', shell=True, capture_output=True)
+    print('out.stdout.decode("utf-8")')
     out = subprocess.run('git status', shell=True, capture_output=True)
     if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
