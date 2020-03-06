@@ -222,10 +222,10 @@ def IssueCommand(command):
                     IssueCommand("points:" + s)
                 print("Finished.")
             elif com == "score":
-                d_view = [ (v,k) for k,v in data["points"].items() ]
-                d_view.sort(reverse=True) # natively sort tuples by first element
-                for v,k in d_view:
-                    print("%s: %d" % (k,v))
+                a = [(v,k) for k,v in data["points"].items()]
+                a.sort(reverse=True) # natively sort tuples by first element
+                for v,k in a:
+                    print("%s | %d" % (k,v))
             elif com == "check":
                 Check(None)
             elif com == "queue":
