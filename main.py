@@ -143,7 +143,7 @@ def Git(user, _in):
     out = subprocess.run('git status', shell=True, capture_output=True)
     if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-        print("Don't edit 'lock.txt', dumbass. Looking at you, " + user ".\n")
+        print("Don't edit 'lock.txt', dumbass. Looking at you, " + user + ".\n")
         return 1
     with open('lock.txt') as lock:
         t = lock.readline().strip()
