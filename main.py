@@ -126,7 +126,7 @@ def Git(user, _in):
     out = None
     print("Verifying integrity...")
     out = subprocess.run('python --version', shell=True, capture_output=True)
-    if out.stdout.decode("utf-8").rsplit('.', 1)[0]) != pyV:
+    if out.stdout.decode("utf-8").rsplit('.', 1)[0] != pyV:
         print("Python is not correct version. Need " + pyV + ".x, installed is " + out.stdout.decode("utf-8"), end="")
         return 1
     out = subprocess.run('git status', shell=True, capture_output=True)
