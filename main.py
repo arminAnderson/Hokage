@@ -159,8 +159,6 @@ def Git(user, _in):
     out = subprocess.run('git add -A', shell=True, capture_output=True)
     out = subprocess.run('git commit -m "log' + _in + user + ' | ' + str(date.today()) + '"', shell=True, capture_output=True)
     out = subprocess.run('git push', shell=True, capture_output=True)
-    print("GOOD: " + out.stdout.decode("utf-8"))
-    print("BAD:" + out.stderr.decode("utf-8"))
     if out.stderr.decode("utf-8").find("remote rejected") != -1:
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
         print("Simultaneous logins detected. System exiting without saving.\n")
