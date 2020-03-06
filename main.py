@@ -161,7 +161,7 @@ def Git(user, _in):
     out = subprocess.run('git push', shell=True, capture_output=True)
     print("GOOD: " + out.stdout.decode("utf-8"))
     print("BAD:" + out.stderr.decode("utf-8"))
-    if out.stderr.decode("utf-8") == "message":
+    if out.stderr.decode("utf-8").find("error"):
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
         print("Simultaneous logins detected. System exiting without saving.\n")
         sys.exit()
