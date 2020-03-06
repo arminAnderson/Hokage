@@ -141,9 +141,8 @@ def Git(user, _in):
         return 1
     print("Verifying integrity...")
     out = subprocess.run('git status', shell=True, capture_output=True)
-    print("GOOD: " + out.stdout.decode("utf-8"))
-    print("BAD:" + out.stderr.decode("utf-8"))
     if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
+        out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
         print("Don't edit 'lock.txt', dumbass.\n")
         return 1
     with open('lock.txt') as lock:
