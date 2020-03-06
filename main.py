@@ -127,6 +127,7 @@ def Git(user, _in):
     out = None
     out = subprocess.run('git pull', shell=True, capture_output=True)
     if out.stderr.decode("utf-8") != "":
+        print(out.stderr.decode("utf-8"))
         s = WaitForYN("\nStop trying to be fancy. Discard local changes?")
         if s == "y":
             out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
