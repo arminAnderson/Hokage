@@ -1,9 +1,6 @@
 {
     "projects": {
-        "nickolas.b": [
-            "space tour",
-            "rolling dice"
-        ],
+        "nickolas.b": [],
         "matthew.o": [
             "maze"
         ],
