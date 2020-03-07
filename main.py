@@ -304,6 +304,9 @@ def IssueCommand(command):
             elif com == "points":
                 if Points(who, what, 0) == 1:
                     print("Now has " + str(data["points"][who][0]) + " points.")
+            elif com == "redeem":
+                if Points(who, "-" + what, what) == 1:
+                    print("Now has " + str(data["points"][who][0]) + " points.")
             elif com == "wipe":
                 IssueCommand("remove:" + who + " all")
                 IssueCommand("unnote:" + who + " all")
@@ -382,6 +385,7 @@ commands = [
     "fix",
     "grade",
     "points",
+    "redeem",
     "score",
 
     "note",
@@ -421,6 +425,7 @@ info = [
     "grade: name all",
     "points",
     "points: name value",
+    "redeem: name, value",
     "score",
 
     "note: name note",
