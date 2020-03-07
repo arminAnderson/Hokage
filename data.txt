@@ -106,7 +106,9 @@
             "pong"
         ],
         "adam.a": [
-            "coordinate collector"
+            "coordinate collector",
+            "pong",
+            "rain_catcher"
         ],
         "genevieve.g": [
             "rain catcher 3"
@@ -124,9 +126,7 @@
         "alexander.l": [
             "meteors deluxe"
         ],
-        "evan.l": [
-            "whats inside"
-        ],
+        "evan.l": [],
         "xavier.l": [
             "pong"
         ],
@@ -146,13 +146,31 @@
             "meteors deluxe"
         ],
         "logan.r": [
-            "pong"
+            "pong",
+            "measurements"
         ],
         "evan.g": [
             "pong prove yourself"
         ],
         "nadia.a": [
             "whack a ninja"
+        ],
+        "dash.m": [
+            "dojo_practice",
+            "shuriken_dodge",
+            "churiken_dodge"
+        ],
+        "victor.l": [
+            "basic_shooter"
+        ],
+        "enzo.j": [
+            "spin prove yourself"
+        ],
+        "gavin.s": [
+            "pong"
+        ],
+        "viktor.l": [
+            "collect_the_keys"
         ]
     },
     "notes": {
@@ -203,7 +221,28 @@
             "apple picking -> submitted someones alien explorer"
         ],
         "logan.r": [
-            "pong | offset is wrong"
+            "pong | offset is wrong",
+            "measurements | can't click on things"
+        ],
+        "dash.m": [
+            "dojo_practice | can't click on targets",
+            "churiken_dodge | not shuriken's to dodge"
+        ],
+        "adam.a": [
+            "pong | Can't control the paddle.",
+            "rain_cacther | did not make turtle flip"
+        ],
+        "victor.l": [
+            "basic_shooter | does not shoot"
+        ],
+        "enzo.j": [
+            "spin prove yourself | needs more spinning"
+        ],
+        "gavin.s": [
+            "pong | player 2 moves up but not down"
+        ],
+        "viktor.l": [
+            "collect_the_keys | link not shared"
         ]
     },
     "todo": {},
