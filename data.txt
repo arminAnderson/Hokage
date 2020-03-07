@@ -77,7 +77,8 @@
         "karissa.p": [
             "mail truck",
             "spin a star",
-            "spin all objects"
+            "spin all objects",
+            "apple picking"
         ],
         "daniel.r": [
             "hiding ninja",
@@ -103,7 +104,7 @@
         "adam.a": [
             "coordinate collector",
             "pong",
-            "rain_catcher"
+            "rain catcher 2"
         ],
         "genevieve.g": [
             "rain catcher 3"
@@ -152,8 +153,7 @@
         ],
         "dash.m": [
             "dojo_practice",
-            "shuriken_dodge",
-            "churiken_dodge"
+            "shuriken_dodge"
         ],
         "victor.l": [
             "basic_shooter"
