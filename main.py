@@ -66,7 +66,7 @@ def Points(who, np, nc):
             data["points"][who][1] += b
             return 1
         except ValueError:
-            print("Missing argument.")
+            print("Invalid argument.")
             return 0
 def Check(who):
     if who != None:
