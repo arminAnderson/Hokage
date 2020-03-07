@@ -61,8 +61,10 @@ def Points(who, np, nc):
         if not who in data["points"]:
             data["points"][who] = [0, 0]
         try:
-            data["points"][who][0] += int(np)
-            data["points"][who][1] += int(nc)
+            a = int(np)
+            b = int(nc)
+            data["points"][who][0] += a
+            data["points"][who][1] += b
             return 1
         except ValueError:
             print("Missing argument.")
@@ -425,7 +427,7 @@ info = [
     "grade: name all",
     "points",
     "points: name value",
-    "redeem: name, value",
+    "redeem: name value",
     "score",
 
     "note: name note",
