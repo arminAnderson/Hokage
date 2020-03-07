@@ -262,6 +262,7 @@
         "davis.l": 1,
         "mckennah.m": 1,
         "jaden.c": 1,
-        "karissa.p": 1
+        "karissa.p": 1,
+        "kyle.p": 1
     }
 }
