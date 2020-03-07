@@ -261,7 +261,7 @@
         "josiah.p": 100,
         "makana.r": 2,
         "evan.g": 2,
-        "naman.s": 2,
+        "naman.s": 22,
         "zoey.z": 2,
         "kennedy.k": 1,
         "gavin.s": 5,
@@ -271,6 +271,16 @@
         "jaden.c": 1,
         "karissa.p": 1,
         "kyle.p": 1,
-        "kadence.p": 1
+        "kadence.p": 1,
+        "connor.i": 6,
+        "ethan.c": 10,
+        "emma.m": 60,
+        "ben.m": 10,
+        "sierra.o": 50,
+        "cole.a": 30,
+        "adam.a": 10,
+        "mason.r": 10,
+        "dash.m": 10,
+        "victor.l": 10
     }
 }
