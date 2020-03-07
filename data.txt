@@ -126,7 +126,6 @@
         "alexander.l": [
             "meteors deluxe"
         ],
-        "evan.l": [],
         "xavier.l": [
             "pong"
         ],
@@ -257,6 +256,7 @@
         "kennedy.k": 1,
         "gavin.s": 5,
         "garret.b": 1,
-        "davis.l": 1
+        "davis.l": 1,
+        "mckennah.m": 1
     }
 }
