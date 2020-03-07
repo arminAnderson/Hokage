@@ -257,6 +257,8 @@
         "gavin.s": 5,
         "garret.b": 1,
         "davis.l": 1,
-        "mckennah.m": 1
+        "mckennah.m": 1,
+        "jaden.c": 1,
+        "karissa.p": 1
     }
 }
