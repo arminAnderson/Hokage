@@ -23,6 +23,7 @@ def Open():
             for where in temp:
                 for who in temp[where]:
                     if where == "points":
+                        print(temp[where][who])
                         Points(who, temp[where][who][0], temp[where][who][1])
                     else:
                         for what in temp[where][who]:
