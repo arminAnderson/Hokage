@@ -82,7 +82,7 @@ def Check(who):
         else:
             print("No notes.")
         if who in data["points"]:
-            print(str(data["points"][who][0]) + " points, and " + str(data["points"][who][1]) + "used points.")
+            print(str(data["points"][who][0]) + " points, and " + str(data["points"][who][1]) + " used points.")
 
         else:
             print("No points.")
