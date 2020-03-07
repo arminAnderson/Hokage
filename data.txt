@@ -79,7 +79,6 @@
             "downhill ski"
         ],
         "karissa.p": [
-            "apple picking",
             "mail truck",
             "spin a star",
             "spin all objects"
