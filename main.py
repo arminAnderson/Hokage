@@ -2,6 +2,7 @@ import sys
 import json
 import os
 import subprocess
+import datetime
 from datetime import date
 from json.decoder import JSONDecodeError
 
@@ -124,6 +125,7 @@ def SignIn():
     return 0
 def Git(user, _in):
     out = None
+    now = datetime.datetime.now()
     print("Verifying integrity...")
     out = subprocess.run('python --version', shell=True, capture_output=True)
     if out.stdout.decode("utf-8").rsplit('.', 1)[0] != pyV:
@@ -158,7 +160,7 @@ def Git(user, _in):
             lock.write(user)
     print("Pushing to repo...")
     out = subprocess.run('git add -A', shell=True, capture_output=True)
-    out = subprocess.run('git commit -m "log' + _in + user + ' | ' + str(date.today()) + '"', shell=True, capture_output=True)
+    out = subprocess.run('git commit -m "log' + _in + user + ' | ' + str(date.today()) + " " + str(now.hour) + ":" + str(now.minute) + '"', shell=True, capture_output=True)
     out = subprocess.run('git push', shell=True, capture_output=True)
     if out.stderr.decode("utf-8").find("error") != -1:
         out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
