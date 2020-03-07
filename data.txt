@@ -169,6 +169,9 @@
         ],
         "jaden.c": [
             "coconut chaos"
+        ],
+        "evan.l": [
+            "whats inside"
         ]
     },
     "notes": {
@@ -246,6 +249,9 @@
         "cole.a": [
             "ninja race | needs to check out steps 16+17",
             "dungeon_escape | stairs don't work... ninja needs to go home and eat"
+        ],
+        "evan.l": [
+            "whats inside | he needs to make sure you cant open a door unless all of them are closed"
         ]
     },
     "todo": {},
