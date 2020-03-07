@@ -170,6 +170,9 @@
         ],
         "viktor.l": [
             "collect_the_keys"
+        ],
+        "jaden.c": [
+            "coconut chaos"
         ]
     },
     "notes": {
@@ -211,7 +214,8 @@
             "says dragon ball z sucks"
         ],
         "jaden.c": [
-            "check on his progress"
+            "check on his progress",
+            "coconut chaos | score not working"
         ],
         "genevieve.g": [
             "rain catcher 3 -> no walking anim"
