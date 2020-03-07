@@ -256,10 +256,13 @@
     },
     "todo": {},
     "points": {
-        "genevieve.g": [1, 0],
-        "kadence.k": [3, 0],
-        "josiah.p": [100, 0],
-        "makana.r": [2 0],
+        "genevieve.g": [
+            1, 
+            0
+        ],
+        "kadence.k": 3,
+        "josiah.p": 100,
+        "makana.r": 2,
         "evan.g": 2,
         "naman.s": 22,
         "zoey.z": 2,
