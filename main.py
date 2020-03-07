@@ -58,18 +58,6 @@ def Points(who, np, nc):
         print("Missing argument.")
         return 0
     else:
-        #try:
-        #    num = int(what)
-        #    old = 0
-        #    try:
-        #        old = int(data["points"][who])
-        #    except KeyError:
-        #        data["points"][who] = 0
-        #    data["points"][who] = old + num
-        #    return 1
-        #except ValueError:
-        #    print("Missing argument.")
-        #    return 0
         if not who in data["points"]:
             data["points"][who] = [0, 0]
         try:
@@ -235,7 +223,7 @@ def IssueCommand(command):
                     IssueCommand("points:" + s)
                 print("Finished.")
             elif com == "score":
-                a = [(v,k) for k,v in data["points"].items()]
+                a = [(v,k) for k,v in data["points"].items()[0]]
                 a.sort(reverse=True) # natively sort tuples by first element
                 for v,k in a:
                     print("%d | %s" % (v,k))
