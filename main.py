@@ -23,7 +23,7 @@ def Open():
             for where in temp:
                 for who in temp[where]:
                     if where == "points":
-                        Points(who, temp[where][who])
+                        Points(who, temp[where][who][0], temp[where][who][1])
                     else:
                         for what in temp[where][who]:
                             Add(where, who, what)
@@ -46,23 +46,32 @@ def Add(where, who, what):
     else:
         print("Missing argument.")
         return 0
-def Points(who, what):
+def Points(who, np, nc):
     if who == "":
         who = None
     if what == "":
         what = None
-    if who == None or what == None:
+    if who == None or np == None or nc == None:
         print("Missing argument.")
         return 0
     else:
+        #try:
+        #    num = int(what)
+        #    old = 0
+        #    try:
+        #        old = int(data["points"][who])
+        #    except KeyError:
+        #        data["points"][who] = 0
+        #    data["points"][who] = old + num
+        #    return 1
+        #except ValueError:
+        #    print("Missing argument.")
+        #    return 0
+        if not who in data["points"]:
+            data["points"][who] = [0, 0]
         try:
-            num = int(what)
-            old = 0
-            try:
-                old = int(data["points"][who])
-            except KeyError:
-                data["points"][who] = 0
-            data["points"][who] = old + num
+            data["points"][who][0] += int(np)
+            data["points"][who][1] += int(nc)
             return 1
         except ValueError:
             print("Missing argument.")
@@ -301,8 +310,8 @@ def IssueCommand(command):
             elif com == "check":
                 Check(who)
             elif com == "points":
-                if Points(who, what) == 1:
-                    print("Now has " + str(data["points"][who]) + " points.")
+                if Points(who, what, 0) == 1:
+                    print("Now has " + str(data["points"][who][0]) + " points.")
             elif com == "wipe":
                 IssueCommand("remove:" + who + " all")
                 IssueCommand("unnote:" + who + " all")
