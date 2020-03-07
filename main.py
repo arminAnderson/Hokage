@@ -82,7 +82,8 @@ def Check(who):
         else:
             print("No notes.")
         if who in data["points"]:
-            print(str(data["points"][who]) + " points.")
+            print(str(data["points"][who][0]) + " points, and " + str(data["points"][who][1]) + "used points.")
+
         else:
             print("No points.")
     else:
@@ -223,7 +224,7 @@ def IssueCommand(command):
                     IssueCommand("points:" + s)
                 print("Finished.")
             elif com == "score":
-                a = [(v,k) for k,v in data["points"].items()[0]]
+                a = [(v[0] + v[1],k) for k,v in data["points"].items()]
                 a.sort(reverse=True) # natively sort tuples by first element
                 for v,k in a:
                     print("%d | %s" % (v,k))
