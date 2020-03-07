@@ -50,8 +50,10 @@ def Add(where, who, what):
 def Points(who, np, nc):
     if who == "":
         who = None
-    if what == "":
-        what = None
+    if np == "":
+        np = None
+    if nc == "":
+        nc = None
     if who == None or np == None or nc == None:
         print("Missing argument.")
         return 0
