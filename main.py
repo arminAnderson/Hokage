@@ -210,7 +210,8 @@ def IssueCommand(command):
                 Exit()    
             elif com == "clear":
                 os.system('cls')
-                print("Console cleaned.", end="")
+                print("Console cleaned.")
+                print("-----------------------------", end="")
             elif com == "add":
                 s = None
                 while True:
