@@ -209,7 +209,7 @@ def IssueCommand(command):
             if com == "exit": 
                 Exit()    
             elif com == "clear":
-                subprocess.run('clear', shell=True, capture_output=True)
+                os.system('clear')
             elif com == "add":
                 s = None
                 while True:
