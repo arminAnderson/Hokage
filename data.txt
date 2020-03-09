@@ -130,7 +130,8 @@
             "dungeon_escape"
         ],
         "connor.i": [
-            "pong"
+            "pong",
+            "pong prove yourself"
         ],
         "anabella.g": [
             "alien explorer"
