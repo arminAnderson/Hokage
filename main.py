@@ -209,7 +209,7 @@ def IssueCommand(command):
             if com == "exit": 
                 Exit()    
             elif com == "clear":
-                os.system('clear')
+                os.system('cls')
             elif com == "add":
                 s = None
                 while True:
