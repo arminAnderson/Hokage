@@ -208,6 +208,8 @@ def IssueCommand(command):
         if args == None:
             if com == "exit": 
                 Exit()    
+            elif com == "clear":
+                subprocess.run('clear', shell=True, capture_output=True)
             elif com == "add":
                 s = None
                 while True:
@@ -373,6 +375,7 @@ data["points"] = {}
 commands = [
     #"save",
     #"open",
+    "clear",
     "exit",
 
     "check",
@@ -401,7 +404,8 @@ commands = [
 info = [
     #"save",
     #"open",
-    "\nexit\n",
+    "\nclear",
+    "exit\n",
 
     "check",
     "check: name",
