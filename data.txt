@@ -173,8 +173,7 @@
         ],
         "josiah.p": [
             "bubbles"
-        ],
-        "eliza.m": []
+        ]
     },
     "notes": {
         "brandon.t": [
