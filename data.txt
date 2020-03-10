@@ -139,9 +139,7 @@
         "makana.r": [
             "rain catcher prove yourself"
         ],
-        "eriz.z": [
-            "meteors deluxe"
-        ],
+        "eriz.z": [],
         "logan.r": [
             "pong",
             "measurements"
@@ -163,7 +161,7 @@
             "spin prove yourself"
         ],
         "gavin.s": [
-            "pong"
+            "coconut chaos"
         ],
         "viktor.l": [
             "collect_the_keys"
@@ -173,6 +171,9 @@
         ],
         "evan.l": [
             "whats inside"
+        ],
+        "josiah.p": [
+            "bubbles"
         ]
     },
     "notes": {
@@ -241,9 +242,7 @@
         "enzo.j": [
             "spin prove yourself | needs more spinning"
         ],
-        "gavin.s": [
-            "pong | player 2 moves up but not down"
-        ],
+        "gavin.s": [],
         "viktor.l": [
             "collect_the_keys | link not shared"
         ],
@@ -253,6 +252,14 @@
         ],
         "evan.l": [
             "whats inside | he needs to make sure you cant open a door unless all of them are closed"
+        ],
+        "gdp": [
+            "color change locks the elements",
+            "whack a ninja timers persist",
+            "cleanupTimers() doesn't work"
+        ],
+        "any": [
+            "game with timers is inconsistent in cleaning them up"
         ]
     },
     "todo": {},
@@ -262,7 +269,7 @@
             0
         ],
         "kadence.k": [
-            3,
+            5,
             0
         ],
         "josiah.p": [
@@ -290,7 +297,7 @@
             0
         ],
         "davis.l": [
-            1,
+            2,
             0
         ],
         "mckennah.m": [
@@ -355,6 +362,18 @@
         ],
         "armin.a": [
             0,
+            0
+        ],
+        "brandon.w": [
+            -2,
+            0
+        ],
+        "savannah.s": [
+            3,
+            0
+        ],
+        "erin.c": [
+            1,
             0
         ]
     }
