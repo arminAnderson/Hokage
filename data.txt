@@ -139,7 +139,6 @@
         "makana.r": [
             "rain catcher prove yourself"
         ],
-        "eriz.z": [],
         "logan.r": [
             "pong",
             "measurements"
@@ -174,7 +173,8 @@
         ],
         "josiah.p": [
             "bubbles"
-        ]
+        ],
+        "eliza.m": []
     },
     "notes": {
         "brandon.t": [
@@ -242,7 +242,6 @@
         "enzo.j": [
             "spin prove yourself | needs more spinning"
         ],
-        "gavin.s": [],
         "viktor.l": [
             "collect_the_keys | link not shared"
         ],
@@ -269,15 +268,15 @@
             0
         ],
         "kadence.k": [
-            5,
+            6,
             0
         ],
         "josiah.p": [
-            100,
+            102,
             0
         ],
         "makana.r": [
-            2,
+            4,
             0
         ],
         "evan.g": [
@@ -289,7 +288,7 @@
             0
         ],
         "gavin.s": [
-            5,
+            10,
             0
         ],
         "garret.b": [
@@ -297,7 +296,7 @@
             0
         ],
         "davis.l": [
-            2,
+            3,
             0
         ],
         "mckennah.m": [
@@ -369,10 +368,30 @@
             0
         ],
         "savannah.s": [
-            3,
+            4,
             0
         ],
         "erin.c": [
+            2,
+            0
+        ],
+        "nihal.g": [
+            1,
+            0
+        ],
+        "eliza.m": [
+            3,
+            0
+        ],
+        "gavin.d": [
+            2,
+            0
+        ],
+        "robert.g": [
+            1,
+            0
+        ],
+        "kevin.g": [
             1,
             0
         ]
