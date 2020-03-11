@@ -99,16 +99,15 @@
         ],
         "alec.b": [
             "bubbles",
-            "pong"
+            "pong",
+            "pong prove yourself"
         ],
         "adam.a": [
             "coordinate collector",
             "pong",
             "rain catcher 2"
         ],
-        "genevieve.g": [
-            "rain catcher 3"
-        ],
+        "genevieve.g": [],
         "eric.z": [
             "meteors deluxe",
             "color change"
@@ -122,9 +121,7 @@
         "alexander.l": [
             "meteors deluxe"
         ],
-        "xavier.l": [
-            "pong"
-        ],
+        "xavier.l": [],
         "cole.a": [
             "ninja race",
             "dungeon_escape"
@@ -165,14 +162,13 @@
         "viktor.l": [
             "collect_the_keys"
         ],
-        "jaden.c": [
-            "coconut chaos"
-        ],
+        "jaden.c": [],
         "evan.l": [
             "whats inside"
         ],
-        "josiah.p": [
-            "bubbles"
+        "josiah.p": [],
+        "erin.c": [
+            "rain catcher 5"
         ]
     },
     "notes": {
@@ -213,13 +209,8 @@
         "brandon.w": [
             "says dragon ball z sucks"
         ],
-        "jaden.c": [
-            "check on his progress",
-            "coconut chaos | score not working"
-        ],
-        "genevieve.g": [
-            "rain catcher 3 -> no walking anim"
-        ],
+        "jaden.c": [],
+        "genevieve.g": [],
         "jasmine.l": [
             "apple picking -> submitted someones alien explorer"
         ],
@@ -263,15 +254,15 @@
     "todo": {},
     "points": {
         "genevieve.g": [
-            1,
+            2,
             0
         ],
         "kadence.k": [
-            6,
+            7,
             0
         ],
         "josiah.p": [
-            102,
+            103,
             0
         ],
         "makana.r": [
@@ -295,7 +286,7 @@
             0
         ],
         "davis.l": [
-            3,
+            6,
             0
         ],
         "mckennah.m": [
@@ -303,7 +294,7 @@
             0
         ],
         "jaden.c": [
-            1,
+            2,
             0
         ],
         "karissa.p": [
@@ -387,6 +378,22 @@
             0
         ],
         "kevin.g": [
+            1,
+            0
+        ],
+        "patrick.h": [
+            2,
+            0
+        ],
+        "josh.m": [
+            -1,
+            0
+        ],
+        "logan.r": [
+            -2,
+            0
+        ],
+        "alexander.l": [
             1,
             0
         ]
