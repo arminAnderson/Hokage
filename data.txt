@@ -32,9 +32,7 @@
             "lift off",
             "meteors deluxe"
         ],
-        "avreen.g": [
-            "alien explorer"
-        ],
+        "avreen.g": [],
         "zoey.z": [
             "rain catcher 6",
             "whack a ninja",
@@ -95,19 +93,19 @@
             "pick a picture"
         ],
         "taran.h": [
-            "parcel express"
+            "parcel express",
+            "collect the keys"
         ],
         "alec.b": [
             "bubbles",
             "pong",
-            "pong prove yourself"
+            "pong prove yourself",
+            "coconut chaos"
         ],
         "adam.a": [
-            "coordinate collector",
             "pong",
             "rain catcher 2"
         ],
-        "genevieve.g": [],
         "eric.z": [
             "meteors deluxe",
             "color change"
@@ -121,7 +119,6 @@
         "alexander.l": [
             "meteors deluxe"
         ],
-        "xavier.l": [],
         "cole.a": [
             "ninja race",
             "dungeon_escape"
@@ -146,10 +143,7 @@
         "nadia.a": [
             "whack a ninja"
         ],
-        "dash.m": [
-            "dojo_practice",
-            "shuriken_dodge"
-        ],
+        "dash.m": [],
         "victor.l": [
             "basic_shooter"
         ],
@@ -162,11 +156,9 @@
         "viktor.l": [
             "collect_the_keys"
         ],
-        "jaden.c": [],
         "evan.l": [
             "whats inside"
         ],
-        "josiah.p": [],
         "erin.c": [
             "rain catcher 5"
         ]
@@ -200,8 +192,7 @@
             "c.c doesnt round"
         ],
         "ethan.c": [
-            "he finished ninja race, but the gdp broke so it didnt save",
-            "should do the bonus step on ball toss"
+            "scratch on 101"
         ],
         "mckennah.m": [
             "using computer 118 for robotics"
@@ -209,8 +200,6 @@
         "brandon.w": [
             "says dragon ball z sucks"
         ],
-        "jaden.c": [],
-        "genevieve.g": [],
         "jasmine.l": [
             "apple picking -> submitted someones alien explorer"
         ],
@@ -218,10 +207,7 @@
             "pong | offset is wrong",
             "measurements | can't click on things"
         ],
-        "dash.m": [
-            "dojo_practice | can't click on targets",
-            "churiken_dodge | not shuriken's to dodge"
-        ],
+        "dash.m": [],
         "adam.a": [
             "pong | Can't control the paddle.",
             "rain_cacther | did not make turtle flip"
@@ -245,7 +231,8 @@
         "gdp": [
             "color change locks the elements",
             "whack a ninja timers persist",
-            "cleanupTimers() doesn't work"
+            "cleanupTimers() doesn't work",
+            "need to run the game twice for name changes to take effect"
         ],
         "any": [
             "game with timers is inconsistent in cleaning them up"
@@ -278,7 +265,7 @@
             0
         ],
         "gavin.s": [
-            10,
+            14,
             0
         ],
         "garret.b": [
@@ -314,7 +301,7 @@
             0
         ],
         "ethan.c": [
-            10,
+            15,
             0
         ],
         "emma.m": [
@@ -342,7 +329,7 @@
             0
         ],
         "dash.m": [
-            10,
+            9,
             0
         ],
         "victor.l": [
@@ -370,7 +357,7 @@
             0
         ],
         "gavin.d": [
-            2,
+            3,
             0
         ],
         "robert.g": [
@@ -394,6 +381,18 @@
             0
         ],
         "alexander.l": [
+            1,
+            0
+        ],
+        "lucca.b": [
+            10,
+            0
+        ],
+        "alec.b": [
+            3,
+            0
+        ],
+        "agastya.r": [
             1,
             0
         ]
