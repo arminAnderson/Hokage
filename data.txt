@@ -32,7 +32,6 @@
             "lift off",
             "meteors deluxe"
         ],
-        "avreen.g": [],
         "zoey.z": [
             "rain catcher 6",
             "whack a ninja",
@@ -123,19 +122,21 @@
             "ninja race",
             "dungeon_escape"
         ],
-        "connor.i": [
-            "pong",
-            "pong prove yourself"
-        ],
+        "connor.i": [],
         "anabella.g": [
             "alien explorer"
         ],
         "makana.r": [
-            "rain catcher prove yourself"
+            "rain catcher prove yourself",
+            "rain catcher complete"
         ],
         "logan.r": [
             "pong",
-            "measurements"
+            "measurements",
+            "meteors 1",
+            "meteors 2",
+            "rain catcher 5",
+            "rain catcher 6"
         ],
         "evan.g": [
             "pong prove yourself"
@@ -143,24 +144,46 @@
         "nadia.a": [
             "whack a ninja"
         ],
-        "dash.m": [],
         "victor.l": [
             "basic_shooter"
         ],
         "enzo.j": [
-            "spin prove yourself"
+            "spin prove yourself",
+            "laser beam pointer",
+            "basic shooter"
         ],
         "gavin.s": [
             "coconut chaos"
         ],
         "viktor.l": [
-            "collect_the_keys"
+            "collect_the_keys",
+            "alien explorer"
         ],
         "evan.l": [
             "whats inside"
         ],
         "erin.c": [
             "rain catcher 5"
+        ],
+        "gavin.d": [
+            "bumper car"
+        ],
+        "ian.c": [
+            "wall blaster",
+            "flying ninja"
+        ],
+        "davis.l": [
+            "prove yourself pong"
+        ],
+        "genevieve.g": [
+            "rain catcher 6"
+        ],
+        "nickolas.b": [
+            "dojo practice",
+            "shuriken dodge"
+        ],
+        "peter.h": [
+            "lift off"
         ]
     },
     "notes": {
@@ -207,7 +230,6 @@
             "pong | offset is wrong",
             "measurements | can't click on things"
         ],
-        "dash.m": [],
         "adam.a": [
             "pong | Can't control the paddle.",
             "rain_cacther | did not make turtle flip"
