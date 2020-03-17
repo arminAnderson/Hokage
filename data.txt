@@ -146,11 +146,7 @@
         "victor.l": [
             "basic_shooter"
         ],
-        "enzo.j": [
-            "spin prove yourself",
-            "laser beam pointer",
-            "basic shooter"
-        ],
+        "enzo.j": [],
         "gavin.s": [
             "coconut chaos"
         ],
@@ -175,7 +171,8 @@
             "prove yourself pong"
         ],
         "genevieve.g": [
-            "rain catcher 6"
+            "rain catcher 6",
+            "hiding ninja"
         ],
         "nickolas.b": [
             "dojo practice",
@@ -239,9 +236,7 @@
         "victor.l": [
             "basic_shooter | does not shoot"
         ],
-        "enzo.j": [
-            "spin prove yourself | needs more spinning"
-        ],
+        "enzo.j": [],
         "viktor.l": [
             "collect_the_keys | link not shared"
         ],
@@ -256,7 +251,8 @@
             "color change locks the elements",
             "whack a ninja timers persist",
             "cleanupTimers() doesn't work",
-            "need to run the game twice for name changes to take effect"
+            "need to run the game twice for name changes to take effect",
+            "rain catcher part 6 has a typo in the color code"
         ],
         "any": [
             "game with timers is inconsistent in cleaning them up"
