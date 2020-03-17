@@ -122,7 +122,6 @@
             "ninja race",
             "dungeon_escape"
         ],
-        "connor.i": [],
         "anabella.g": [
             "alien explorer"
         ],
@@ -184,6 +183,9 @@
         ],
         "peter.h": [
             "lift off"
+        ],
+        "connor.i": [
+            "rain catcher 6"
         ]
     },
     "notes": {
