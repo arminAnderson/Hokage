@@ -33,10 +33,7 @@
             "meteors deluxe"
         ],
         "zoey.z": [
-            "rain catcher 6",
-            "whack a ninja",
-            "ninja supplies",
-            "balloon protect"
+            "rain catcher 6"
         ],
         "lorenzo.a": [
             "ninja puzzle"
@@ -146,7 +143,6 @@
         "victor.l": [
             "basic_shooter"
         ],
-        "enzo.j": [],
         "gavin.s": [
             "coconut chaos"
         ],
@@ -236,7 +232,6 @@
         "victor.l": [
             "basic_shooter | does not shoot"
         ],
-        "enzo.j": [],
         "viktor.l": [
             "collect_the_keys | link not shared"
         ],
