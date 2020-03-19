@@ -32,9 +32,7 @@
             "lift off",
             "meteors deluxe"
         ],
-        "zoey.z": [
-            "rain catcher 6"
-        ],
+        "zoey.z": [],
         "lorenzo.a": [
             "ninja puzzle"
         ],
@@ -106,9 +104,7 @@
             "meteors deluxe",
             "color change"
         ],
-        "aidan.b": [
-            "maze"
-        ],
+        "aidan.b": [],
         "jasmine.l": [
             "apple picking"
         ],
@@ -179,6 +175,9 @@
         ],
         "connor.i": [
             "rain catcher 6"
+        ],
+        "sierra.o": [
+            "pong"
         ]
     },
     "notes": {
@@ -409,6 +408,14 @@
         ],
         "agastya.r": [
             1,
+            0
+        ],
+        "derrick.t": [
+            5,
+            0
+        ],
+        "zoey.z": [
+            5,
             0
         ]
     }
