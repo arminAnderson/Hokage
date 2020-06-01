@@ -12,10 +12,12 @@ def WaitForYN(message):
     while s != "y" and s!= "n":
         s = input(message + " (y/n): ")
     return s
+
 def Save():
     with open('data.txt', 'w') as outfile:
         json.dump(data, outfile, indent=4)
     print("JSON saved to file.")
+
 def Open():
     try:
         with open('data.txt') as jsonFile:
@@ -30,6 +32,7 @@ def Open():
         print("JSON loaded.")
     except JSONDecodeError:
         print("Error reading file.")
+
 def Add(where, who, what):
     if where == "":
         where = None
@@ -46,6 +49,7 @@ def Add(where, who, what):
     else:
         print("Missing argument.")
         return 0
+
 def Points(who, np, nc):
     if who == "":
         who = None
@@ -68,6 +72,7 @@ def Points(who, np, nc):
         except ValueError:
             print("Invalid argument.")
             return 0
+
 def Check(who):
     if who != None:
         if who in data["projects"]:
@@ -84,7 +89,6 @@ def Check(who):
             print("No notes.")
         if who in data["points"]:
             print(str(data["points"][who][0]) + " points, and " + str(data["points"][who][1]) + " used points.")
-
         else:
             print("No points.")
     else:
