@@ -32,7 +32,6 @@
             "lift off",
             "meteors deluxe"
         ],
-        "zoey.z": [],
         "lorenzo.a": [
             "ninja puzzle"
         ],
@@ -104,7 +103,6 @@
             "meteors deluxe",
             "color change"
         ],
-        "aidan.b": [],
         "jasmine.l": [
             "apple picking"
         ],
@@ -146,9 +144,7 @@
             "collect_the_keys",
             "alien explorer"
         ],
-        "evan.l": [
-            "whats inside"
-        ],
+        "evan.l": [],
         "erin.c": [
             "rain catcher 5"
         ],
@@ -238,9 +234,7 @@
             "ninja race | needs to check out steps 16+17",
             "dungeon_escape | stairs don't work... ninja needs to go home and eat"
         ],
-        "evan.l": [
-            "whats inside | he needs to make sure you cant open a door unless all of them are closed"
-        ],
+        "evan.l": [],
         "gdp": [
             "color change locks the elements",
             "whack a ninja timers persist",
