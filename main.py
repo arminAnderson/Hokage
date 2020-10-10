@@ -7,6 +7,15 @@ from datetime import date
 from json.decoder import JSONDecodeError
 
 # - - - - - UTIL - - - - - #
+class InfoBundle():
+    def __init__(self, id, stars, date, comment):
+        self.id = id
+        self.stars = stars
+        self.date = date
+        self.comment = comment
+    def ToJson(self):
+        return self.__dict__
+
 def WaitForYN(message):
     s = None
     while s != "y" and s!= "n":
@@ -22,363 +31,51 @@ def Open():
     try:
         with open('data.txt') as jsonFile:
             temp = json.load(jsonFile)
-            
+            for name in temp:
+                for p in temp[name]:
+                    Add(name, p["id"], p["stars"], p["date"], p["comment"])
         print("JSON loaded.")
     except JSONDecodeError:
         print("Error reading file.")
 
-def Add(where, who, what):
-    if where == "":
-        where = None
-    if who == "":
-        who = None
-    if what == "":
-        what = None
-    if where != None and who != None and what != None:
-        if not who in data[where]:
-            data[where][who] = []
-        if not what in data[where][who]:
-            data[where][who].append(what)
-        return 1
-    else:
-        print("Missing argument.")
-        return 0
+def TodaysDate():
+    return str(date.today())
 
-def Points(who, np, nc):
-    if who == "":
-        who = None
-    if np == "":
-        np = None
-    if nc == "":
-        nc = None
-    if who == None or np == None or nc == None:
-        print("Missing argument.")
-        return 0
+def GetStudent(name):
+    if not name in data:
+        data[name] = []
+        print("Student '" + name + "' added.")
     else:
-        if not who in data["points"]:
-            data["points"][who] = [0, 0]
-        try:
-            a = int(np)
-            b = int(nc)
-            data["points"][who][0] += a
-            data["points"][who][1] += b
-            return 1
-        except ValueError:
-            print("Invalid argument.")
-            return 0
+        print("Projects for '" + name + "':")
+        for p in data[name]:
+            print("\tName: {}\tStars: {}\tDate: {}\tComment: {}".format(activities[int(p["id"])], p["stars"], p["date"], p["comment"]))
+        print()
 
-def Check(who):
-    if who != None:
-        if who in data["projects"]:
-            print(str(len(data["projects"][who])) + " projects to fix:")
-            for p in data["projects"][who]:
-                print(" - " + p)
-        else:
-            print("No projects.")
-        if who in data["notes"]:
-            print("Notes:")
-            for p in data["notes"][who]:
-                print(" - " + p)
-        else:
-            print("No notes.")
-        if who in data["points"]:
-            print(str(data["points"][who][0]) + " points, and " + str(data["points"][who][1]) + " used points.")
-        else:
-            print("No points.")
-    else:
-        s = {}
-        for who in data["projects"]:
-            if len(data["projects"][who]) > 0:
-                s[who] = len(data["projects"][who])
-        for t in sorted(s, key = s.get, reverse = True):
-            print(t + " has " + str(s[t]) + " projects to fix:")
-            for p in data["projects"][t]:
-                print(" - " + p)
-            print("-----------------------------")
-def Remove(where, who, what):
-    if who in data[where]:
-        if what != None:
-            try:
-                if int(what) >= 0 and int(what) < len(data[where][who]):
-                    data[where][who].remove(data[where][who][int(what)])
-                else:
-                    print("Out of bounds.")
-            except ValueError:
-                if what in data[where][who]:
-                    data[where][who].remove(what)
-                else:
-                    print("'" + what + "' not in " + who + "'s " + where + ".")
-        else:
-            print("'what' is undefined.")
-    else:
-        if where == "projects":
-            print("No projects found.")
-        elif where == "notes":
-            print("No notes found.")
-def SignIn():
-    user = ""
-    while user == "":
-        user = input("Enter username: ")
-    if Git(user, " in ") == 1:
-        return 1
-    Open()
-    return 0
-def Git(user, _in):
-    out = None
-    now = datetime.datetime.now()
-    print("Verifying integrity...")
-    out = subprocess.run('python --version', shell=True, capture_output=True)
-    if out.stdout.decode("utf-8").rsplit('.', 1)[0] != pyV:
-        print("Python is not correct version. Need " + pyV + ".x, installed is " + out.stdout.decode("utf-8"), end="")
-        return 1
-    out = subprocess.run('git status', shell=True, capture_output=True)
-    if out.stdout.decode("utf-8").find("lock.txt") != -1 and _in == " in ":
-        out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-        print("Don't edit 'lock.txt', dumbass. Looking at you, " + user + ".\n")
-        return 1
-    print("Pulling repo...")
-    out = subprocess.run('git pull', shell=True, capture_output=True)
-    if out.stderr.decode("utf-8").find("error") != -1:
-        s = WaitForYN("\nYou broke something. Discard local changes?")
-        if s == "y":
-            out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-            print("Local changes wiped.")
-        else:   
-            print("Exiting safely. Contact Armin.")
-        return 1
-    if out.stdout.decode("utf-8").find("main.py") != -1:
-        print("Old version detected. System exiting without saving. Try again.\n")
-        return 1
-    with open('lock.txt') as lock:
-        t = lock.readline().strip()
-        if not t == "":
-            out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-            print(t + " is signed in. System exiting without saving.\n")
-            return 1
-    if _in != " out ":
-        with open('lock.txt', 'w') as lock:
-            lock.write(user)
-    print("Pushing to repo...")
-    out = subprocess.run('git add -A', shell=True, capture_output=True)
-    out = subprocess.run('git commit -m "log' + _in + user + ' | ' + str(date.today()) + " " + str(now.hour) + ":" + str(now.minute) + '"', shell=True, capture_output=True)
-    out = subprocess.run('git push', shell=True, capture_output=True)
-    if out.stderr.decode("utf-8").find("error") != -1:
-        out = subprocess.run('git reset --hard origin/master', shell=True, capture_output=True)
-        print("Simultaneous logins detected. System exiting without saving.\n")
-        sys.exit()
-    return 0
-def Exit():
-    t = None
-    with open('lock.txt') as lock:
-        t = lock.readline().strip()
-    open('lock.txt', 'w').close()
-    s = WaitForYN("Save?")
-    print("Program terminated",end=", ")
-    if s == "y":
-        Save()
-    else:
-        print("without saving.")
-    Git(t, " out ")
-    print("")
-    sys.exit()
-
-# - - - - - COMMAND - - - - - #
-def IssueCommand(command):
-    commandString = command.split(":")
-    com = commandString[0]
-    if com in commands:
-        args = None
-        who = None
-        what = None
-        try:
-            args = commandString[1].split(None, 1)
-            who = args[0].lstrip()
-            who = args[0].rstrip()
-            if who == "":
-                who = None
-            what = args[1].lstrip()
-            what = args[1].rstrip()
-            if what == "":
-                what = None
-        except IndexError:
-            if who == None and what == None:
-                args = None
-        if args == None:
-            if com == "exit": 
-                Exit()    
-            elif com == "clear":
-                os.system('cls')
-                print("Console wiped.")
-                print("--------------", end="")
-            elif com == "add":
-                s = None
-                while True:
-                    s = input("add | ")
-                    if s == "done":
-                        break
-                    IssueCommand("add:" + s)
-                print("Finished.")
-            elif com == "points":
-                s = None
-                while True:
-                    s = input("points | ")
-                    if s == "done":
-                        break
-                    IssueCommand("points:" + s)
-                print("Finished.")
-            elif com == "score":
-                a = [(v[0] + v[1], v[0] ,k) for k,v in data["points"].items()]
-                a.sort(reverse=True) # natively sort tuples by first element
-                for v, vt, k in a:
-                    print("%d ( %d ) | %s" % (v, vt, k))
-            elif com == "check":
-                Check(None)
-            elif com == "queue":
-                if len(data["todo"]) > 0:
-                    print("Projects in queue:")
-                    for n in data["todo"]:
-                        for p in data["todo"][n]:
-                            print(" - " + n + ": " + p)
-                else:
-                    print("No projects to grade.")
-            elif com == "grade":
-                s = WaitForYN("Are you sure you want to clear the whole grade queue?")
-                if s == "y":
-                    for n in data["todo"]:
-                        while len(data["todo"][n]) > 0:
-                            Remove("todo", n, 0)
-                    print("Cleared.")
-                else:
-                    print("Cancelled.")
-            elif com == "dict":
-                print(json.dumps(data, sort_keys=False, indent=4))
-            elif com == "json":
-                try:
-                    with open('data.txt') as jsonFile:
-                        temp = json.load(jsonFile)
-                        print(json.dumps(temp, sort_keys=False, indent=4))
-                except JSONDecodeError:
-                    print("Error printing.")
-            elif com == "stats":
-                num = 0
-                for who in data["projects"]:
-                    for what in data["projects"][who]:
-                        num += 1
-                print("Number of projects to fix: " + str(num))          
-                num = 0      
-                for who in data["todo"]:
-                    for what in data["todo"][who]:
-                        num += 1
-                print("Number of projects to grade: " + str(num))
-            elif com == "who":
-                for i in sorted(data["projects"].keys()):
-                    if len(data["projects"][i]) > 0:
-                        print(i)
-            elif com == "info":
-                for c in info:
-                    print(" - " + c)
-            else:
-                print("'" + com + "' requires args.")
-        else:
-            if com == "add":
-                if what != None and what.find('#') != -1:
-                    parts = what.split("#")
-                    parts[0] = parts[0].lstrip()
-                    parts[0] = parts[0].rstrip()
-                    parts[1] = parts[1].lstrip()
-                    parts[1] = parts[1].rstrip()
-                    Add("projects", who, parts[0])
-                    if parts[0] != "" and parts[1] != "":
-                        Add("notes", who, parts[0] + " | " + parts[1])
-                else:
-                    if what == None:
-                        s = None
-                        while True:
-                            s = input("add for " + who + " | ")
-                            s.strip()
-                            if s == "done" or s == "":
-                                break
-                            IssueCommand("add: " + who + " " + s)
-                        print("Finished.")
-                    else:
-                        Add("projects", who, what)
-            elif com == "check":
-                Check(who)
-            elif com == "points":
-                if Points(who, what, 0) == 1:
-                    print("Now has " + str(data["points"][who][0]) + " points.")
-            elif com == "redeem":
-                if Points(who, "-" + what, what) == 1:
-                    print("Now has " + str(data["points"][who][0]) + " points.")
-            elif com == "wipe":
-                IssueCommand("remove:" + who + " all")
-                IssueCommand("unnote:" + who + " all")
-            elif com == "remove":
-                if what == "all" and who in data["projects"]:
-                    while len(data["projects"][who]) > 0:
-                        Remove("projects", who, 0)
-                else:
-                    Remove("projects", who, what)
-            elif com == "fix":
-                if who in data["projects"]:
-                    if what != None:
-                        if what == "all":
-                            for p in data["projects"][who]:
-                                Add("todo", who, p)
-                            IssueCommand("remove:" + who + " all")
-                        else:
-                            try:
-                                if int(what) >= 0 and int(what) < len(data["projects"][who]):
-                                    Add("todo", who, data["projects"][who][int(what)])
-                                    Remove("projects", who, what)
-                                else:
-                                    print("Out of bounds.")
-                            except ValueError:
-                                if what in data["projects"][who]:
-                                    Add("todo", who, what)
-                                    Remove("projects", who, what)
-                                else:
-                                    print("Project not added to " + who + ".")
-                    else:
-                        print("Invalid")
-                else:
-                    print("Ninja not found.")
-            elif com == "grade":
-                if what == "all" and who in data["todo"]:
-                    while len(data["todo"][who]) > 0:
-                        Remove("todo", who, 0)
-                else:
-                    Remove("todo", who, what)
-            elif com == "note":
-                Add("notes", who, what)
-            elif com == "unnote":
-                if what == "all" and who in data["notes"]:
-                    while len(data["notes"][who]) > 0:
-                        Remove("notes", who, 0)
-                else:
-                    Remove("notes", who, what)
-            else:
-                print("'" + com + "' doesn't use args.")
-    else:
-        print("Command not recognized.")
-    
-
-# - - - - - MAIN - - - - - #
-pyV = "Python 3.8"
+def Add(name, id, stars, date, comment):
+    bundle = InfoBundle(id, stars, date, comment)
+    if not name in data:
+        GetStudent(name)
+    data[name].append(bundle.ToJson())
 
 data = {}
-data["projects"] = {}
-data["notes"] = {}
-data["todo"] = {}
-data["points"] = {}
-
-commands = [
-
-]
-
-print("\nVersion 1.0.0 active.\n")
-f = SignIn()
-if f == 0:
-    while(True):
-        command = input("\nEnter command: ")
-        IssueCommand(command)
+activities = ["root"] + [p.replace("\n", "") for p in open("activities.txt", 'r').readlines()]
+Open()
+print("-----------")
+while True:
+    command = input("\nFunc: ")
+    parse = command.split(" ")
+    func = parse[0]
+    if func == "help":
+        print("Format: func name id stars date comment")
+        print("Example: add armin 5 3 10/14/2020 this is a comment")
+        print("You can also automatically get the date")
+        print("Example: add armin 5 3 auto this is a comment")
+    elif func == "add":
+        comment = ""
+        for i in range(5, len(parse)):
+            comment += parse[i] + " "
+        Add(parse[1], parse[2], parse[3], parse[4], comment)
+        print()
+        Save()
+    elif func == "get":
+        GetStudent(parse[1])
