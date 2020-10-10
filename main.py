@@ -22,13 +22,7 @@ def Open():
     try:
         with open('data.txt') as jsonFile:
             temp = json.load(jsonFile)
-            for where in temp:
-                for who in temp[where]:
-                    if where == "points":
-                        Points(who, temp[where][who][0], temp[where][who][1])
-                    else:
-                        for what in temp[where][who]:
-                            Add(where, who, what)
+            
         print("JSON loaded.")
     except JSONDecodeError:
         print("Error reading file.")
@@ -379,75 +373,7 @@ data["todo"] = {}
 data["points"] = {}
 
 commands = [
-    #"save",
-    #"open",
-    "clear",
-    "exit",
 
-    "check",
-    "queue",
-    "stats",
-    "who",
-
-    "add",
-    "remove",
-    "wipe",
-    "fix",
-    "grade",
-    "points",
-    "redeem",
-    "score",
-
-    "note",
-    "unnote",
-
-    #"dict",
-    #"json",
-
-    "info"
-]
-
-info = [
-    #"save",
-    #"open",
-    "\nclear",
-    "exit\n",
-
-    "check",
-    "check: name",
-    "queue",
-    "stats",
-    "who\n",
-
-    "add",
-    "add: name",
-    "add: name project",
-    "add: name project # note",
-    "remove: name project",
-    "remove: name project index",
-    "remove: name all",
-    "wipe: name",
-    "fix: name project",
-    "fix: name project index",
-    "fix: name all",
-    "grade",
-    "grade: name project",
-    "grade: name project index",
-    "grade: name all",
-    "points",
-    "points: name value",
-    "redeem: name value",
-    "score",
-
-    "note: name note",
-    "unnote: name note",
-    "unnote: name note index",
-    "unnote: name all\n",
-
-    #"dict",
-    #"json\n",
-
-    "info"
 ]
 
 print("\nVersion 1.0.0 active.\n")
